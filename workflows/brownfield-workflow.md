@@ -4,7 +4,7 @@
 TOKEN_BUDGET: 1500
 TIER: 3
 LOAD_TRIGGER: Intent = CODE_TO_DOCS (reverse-engineer documentation from existing code)
-DEPENDENCIES: skill.md, mappings/*, reference/09-code-to-docs.md
+DEPENDENCIES: SKILL.md, mappings/*, reference/09-code-to-docs.md
 ---
 
 ## Overview

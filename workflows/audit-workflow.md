@@ -4,7 +4,7 @@
 TOKEN_BUDGET: 1000
 TIER: 3
 LOAD_TRIGGER: Intent = AUDIT (review existing documentation)
-DEPENDENCIES: skill.md, reference/quality-checklist.md
+DEPENDENCIES: SKILL.md, reference/quality-checklist.md
 ---
 
 ## Overview

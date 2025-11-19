@@ -135,8 +135,7 @@ Successfully completed **two major PDA optimizations** for the documentation-spe
 
 ```
 documentation-specialist/
-├── skill.md                        # Tier 2: Core routing (458 lines, 2,500 tokens)
-├── SKILL_HEADER.md                 # Tier 1: Metadata (50 lines, 250 tokens)
+├── SKILL.md                        # Core routing + quick start (458 lines, 2,500 tokens)
 │
 ├── workflows/                      # Tier 3: On-demand workflows
 │   ├── greenfield-workflow.md      # CREATE_NEW (770 lines, 1,500 tokens)
@@ -186,16 +185,15 @@ Load: template (500 tokens)
 Total: 9,500 tokens
 ```
 
-**v2.0-PDA (After Optimization)**:
+**v2.1-PDA (After Optimization + Spec Compliance)**:
 ```
-Load: SKILL_HEADER.md (250 tokens)
-Load: skill.md (2,500 tokens)
+Load: SKILL.md (2,500 tokens)
 Load: greenfield-workflow.md (1,500 tokens)
 Load: examples/TOC.md (150 tokens)
 Load: examples/greenfield/billing-srs.md (1,200 tokens)
 Load: reference/02-requirements-srs-vs-prd.md (200 tokens)
 Load: templates/markdown/requirements-srs.md (500 tokens)
-Total: 6,300 tokens
+Total: 6,050 tokens
 ```
 
 **Savings**: 9,500 → 6,300 tokens = **34% reduction**
@@ -205,9 +203,9 @@ But more importantly: **Selective loading** means we can skip guides we don't ne
 - Skip audit if not auditing
 - Skip most reference guides (load 1-2 max)
 
-**Optimized v2.0-PDA (Smart Loading)**:
+**Optimized v2.1-PDA (Smart Loading + Spec Compliant)**:
 ```
-Load: skill.md (2,500 tokens)
+Load: SKILL.md (2,500 tokens)
 Load: greenfield-workflow.md (1,500 tokens)
 Load: examples/TOC.md (150 tokens)
 Load: examples/greenfield/billing-srs.md (1,200 tokens)
@@ -217,13 +215,15 @@ Total: 5,850 tokens
 
 **Savings**: 9,500 → 5,850 tokens = **38% reduction**
 
+**Note**: v2.1 removes SKILL_HEADER.md (non-standard) and renames skill.md → SKILL.md per official spec.
+
 ---
 
 ## Success Metrics
 
 | Metric | v1.0 | v2.0-PDA | Status |
 |--------|------|----------|--------|
-| **skill.md size** | 954 lines | 458 lines | ✅ 52% reduction |
+| **SKILL.md size** | 954 lines | 458 lines | ✅ 52% reduction |
 | **Comprehensive guide** | 1 file (4,230 tokens) | 27 files (avg 234 tokens) | ✅ 89% selective reduction |
 | **Examples** | 0 working | 4 complete | ✅ 100% improvement |
 | **Typical token load** | 9,000 tokens | 4,140-5,850 tokens | ✅ 35-54% reduction |
@@ -263,7 +263,7 @@ Total: 5,850 tokens
 
 ## Integration Points
 
-### skill.md References
+### SKILL.md References
 
 **Line 435-442** (On-Demand Resource Links):
 ```markdown
