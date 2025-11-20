@@ -18,13 +18,12 @@ Transform Claude Code into an expert software documentation specialist with **Pr
 
 ### PDA Architecture (54% Token Reduction)
 
-This skill uses a **three-tier Progressive Disclosure Architecture** to minimize token consumption while maintaining full functionality:
+This skill uses **Progressive Disclosure Architecture** to minimize token consumption while maintaining full functionality:
 
-- **Tier 1** (Auto-loaded): `SKILL_HEADER.md` (~250 tokens) - Quick start and metadata
-- **Tier 2** (Core): `skill.md` (~2,500 tokens) - Routing and execution logic
-- **Tier 3** (On-demand): Workflow guides, templates, mappings (~5,750 tokens, loaded selectively)
+- **Core** (Auto-loaded): `SKILL.md` (~2,500 tokens) - Routing, execution logic, and quick start
+- **On-demand**: Workflow guides, templates, mappings (~10,000 tokens, loaded selectively)
 
-**Typical Token Load**: 4,140 tokens (vs 9,000 in v1.0) = **54% reduction** ✅
+**Typical Token Load**: 2,500 tokens (just SKILL.md) to 5,000 tokens (with workflow) = **44-72% reduction vs v1.0** ✅
 
 ---
 
@@ -131,8 +130,7 @@ Create a C4 container diagram for my e-commerce microservices platform
 
 ```
 documentation-specialist/
-├── SKILL_HEADER.md                    # Tier 1: Auto-loaded metadata (250 tokens)
-├── skill.md                           # Tier 2: Core routing logic (2,500 tokens)
+├── SKILL.md                           # Core routing logic + quick start (2,500 tokens)
 ├── PDA_MIGRATION_SUMMARY.md           # Migration documentation
 ├── USER_GUIDE.md                      # ← Comprehensive user guide
 │
@@ -185,13 +183,12 @@ documentation-specialist/
 
 **Example**: "Create an SRS for a billing system"
 
-1. **Tier 1 Auto-Load**: `SKILL_HEADER.md` (250 tokens)
-2. **Tier 2 Load**: `skill.md` classifies intent as CREATE_NEW (2,500 tokens)
-3. **Tier 3 Selective Load**:
+1. **Auto-Load**: `SKILL.md` classifies intent as CREATE_NEW (2,500 tokens)
+2. **Selective Load**:
    - `workflows/greenfield-workflow.md` (1,500 tokens)
    - `templates/markdown/requirements-srs.md` (500 tokens)
-4. **Execute**: Generate customized SRS
-5. **Total Tokens**: 4,750 (vs 9,000 in v1.0) = **47% reduction**
+3. **Execute**: Generate customized SRS
+4. **Total Tokens**: 4,500 (vs 9,000 in v1.0) = **50% reduction**
 
 ### Intent Classification
 
@@ -405,7 +402,7 @@ prescription management, and EHR integration. Must support 10,000 concurrent use
 
 | Metric | v1.0 | v2.0-PDA | Improvement |
 |--------|------|----------|-------------|
-| **skill.md size** | 954 lines | 458 lines | 52% reduction |
+| **SKILL.md size** | 954 lines | 458 lines | 52% reduction |
 | **Typical token load** | ~9,000 | ~4,140 | 54% reduction |
 | **Initial load** | 4,770 tokens | 2,750 tokens | 42% reduction |
 | **Largest file** | 954 lines | 458 lines | PDA compliant ✅ |

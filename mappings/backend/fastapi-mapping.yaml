@@ -1,0 +1,324 @@
+# FastAPI Code-to-Docs Mapping
+# Version: 1.0.0
+# Framework: FastAPI (Python web framework for building APIs)
+# Last Updated: 2025-01-18
+
+framework:
+  name: "FastAPI"
+  language: "Python"
+  version: "0.100+"
+  detection_files:
+    - "requirements.txt"
+    - "pyproject.toml"
+    - "main.py"
+    - "app.py"
+  detection_patterns:
+    - pattern: "from fastapi import"
+      file_types: [".py"]
+    - pattern: "app = FastAPI()"
+      file_types: [".py"]
+    - pattern: "fastapi"
+      file_types: ["requirements.txt", "pyproject.toml"]
+
+# Document types this mapping can generate
+outputs:
+  - type: "SDD"
+    template: "templates/markdown/design-sdd.md"
+    description: "Software Design Document with architecture and API design"
+
+  - type: "OpenAPI"
+    template: "templates/markdown/api-openapi.yaml"
+    description: "OpenAPI 3.0 specification extracted from FastAPI routes"
+
+  - type: "API_GUIDE"
+    template: "templates/markdown/api-usage-guide.md"
+    description: "Developer guide for using the API"
+
+# Code-to-docs extraction rules
+extraction_rules:
+
+  # API Endpoints (Routes)
+  api_endpoints:
+    description: "Extract REST API endpoints from FastAPI route decorators"
+    file_patterns: ["**/routers/*.py", "**/api/*.py", "main.py", "app.py"]
+    code_patterns:
+      - decorator: "@app.get"
+        http_method: "GET"
+        captures:
+          - name: "path"
+            pattern: '@app\.get\("([^"]+)"\)'
+          - name: "summary"
+            pattern: 'summary="([^"]+)"'
+          - name: "tags"
+            pattern: 'tags=\[([^\]]+)\]'
+
+      - decorator: "@app.post"
+        http_method: "POST"
+        captures:
+          - name: "path"
+            pattern: '@app\.post\("([^"]+)"\)'
+          - name: "response_model"
+            pattern: 'response_model=(\w+)'
+
+      - decorator: "@app.put"
+        http_method: "PUT"
+        captures:
+          - name: "path"
+            pattern: '@app\.put\("([^"]+)"\)'
+
+      - decorator: "@app.delete"
+        http_method: "DELETE"
+        captures:
+          - name: "path"
+            pattern: '@app\.delete\("([^"]+)"\)'
+
+      - decorator: "@router.get|post|put|delete"
+        http_method: "DYNAMIC"
+        captures:
+          - name: "path"
+            pattern: '@router\.\w+\("([^"]+)"\)'
+
+    extraction_logic: |
+      1. Find all Python files in api/routers directories
+      2. Search for FastAPI route decorators (@app.get, @router.post, etc.)
+      3. Extract path, HTTP method, response model, tags
+      4. Parse function docstrings for description
+      5. Extract Pydantic models for request/response schemas
+      6. Generate OpenAPI paths section
+
+  # Data Models (Pydantic)
+  data_models:
+    description: "Extract Pydantic models for API request/response schemas"
+    file_patterns: ["**/models/*.py", "**/schemas/*.py"]
+    code_patterns:
+      - class_pattern: "class \\w+\\(BaseModel\\):"
+        captures:
+          - name: "class_name"
+            pattern: 'class (\\w+)\\(BaseModel\\):'
+          - name: "fields"
+            pattern: '(\\w+):\\s*([\\w\\[\\]]+)\\s*=?\\s*Field\\(([^\\)]+)\\)'
+          - name: "field_type"
+            pattern: ':\\s*([\\w\\[\\]]+)'
+          - name: "field_default"
+            pattern: '=\\s*Field\\(default=([^,\\)]+)'
+
+    extraction_logic: |
+      1. Find all Pydantic BaseModel classes
+      2. Extract field names, types, validators
+      3. Parse Field() configurations (description, example, constraints)
+      4. Generate OpenAPI components/schemas section
+      5. Create ER diagram for data relationships
+
+  # Dependencies (Dependency Injection)
+  dependencies:
+    description: "Extract FastAPI dependencies for auth, database, etc."
+    file_patterns: ["**/dependencies.py", "**/deps.py"]
+    code_patterns:
+      - function_pattern: "def \\w+\\([^\\)]*\\)\\s*->\\s*\\w+:"
+        decorator: "@app.dependency"
+
+    extraction_logic: |
+      1. Find dependency functions (oauth2_scheme, get_db, etc.)
+      2. Document authentication requirements
+      3. Document database session management
+      4. Create sequence diagram for auth flow
+
+  # Middleware
+  middleware:
+    description: "Extract custom middleware for CORS, logging, etc."
+    file_patterns: ["**/middleware/*.py", "main.py"]
+    code_patterns:
+      - pattern: "@app.middleware"
+        captures:
+          - name: "middleware_type"
+            pattern: '@app\\.middleware\\("([^"]+)"\\)'
+
+    extraction_logic: |
+      1. Find middleware decorators
+      2. Document CORS configuration
+      3. Document logging/monitoring setup
+      4. Document rate limiting if present
+
+  # Configuration
+  configuration:
+    description: "Extract app configuration and settings"
+    file_patterns: ["**/config.py", "**/settings.py", ".env.example"]
+    code_patterns:
+      - class_pattern: "class Settings\\(BaseSettings\\):"
+        captures:
+          - name: "config_vars"
+            pattern: '(\\w+):\\s*([\\w\\[\\]]+)'
+
+    extraction_logic: |
+      1. Find Settings class (Pydantic BaseSettings)
+      2. Document environment variables
+      3. Document configuration precedence
+      4. Create deployment guide section
+
+# Documentation generation instructions
+documentation_templates:
+
+  sdd:
+    sections:
+      - name: "Architecture Overview"
+        content: |
+          FastAPI application with RESTful API design.
+          - Framework: FastAPI {version}
+          - Python: {python_version}
+          - ASGI Server: Uvicorn
+
+      - name: "API Endpoints"
+        content: |
+          Generate table of all endpoints:
+          | Method | Path | Description | Auth Required |
+          |--------|------|-------------|---------------|
+          {for each endpoint}
+
+      - name: "Data Models"
+        content: |
+          Pydantic models for request/response validation:
+          {list all BaseModel classes with fields}
+
+      - name: "Authentication"
+        content: |
+          {if OAuth2 dependencies found}
+          Uses OAuth2 with Bearer tokens.
+          Dependency: {dependency_function}
+
+      - name: "Database"
+        content: |
+          {if SQLAlchemy patterns found}
+          Database: {database_type}
+          ORM: SQLAlchemy
+          Connection: {connection_details}
+
+  openapi:
+    generation: |
+      FastAPI auto-generates OpenAPI spec at /docs endpoint.
+      To extract programmatically:
+      ```python
+      from fastapi.openapi.utils import get_openapi
+
+      def custom_openapi():
+          if app.openapi_schema:
+              return app.openapi_schema
+          openapi_schema = get_openapi(
+              title="My API",
+              version="1.0.0",
+              routes=app.routes,
+          )
+          app.openapi_schema = openapi_schema
+          return app.openapi_schema
+
+      # Save to file
+      import json
+      with open("openapi.json", "w") as f:
+          json.dump(custom_openapi(), f, indent=2)
+      ```
+
+  api_guide:
+    sections:
+      - name: "Authentication"
+        content: |
+          ```python
+          import requests
+
+          # Get access token
+          response = requests.post(
+              "https://api.example.com/token",
+              data={"username": "user", "password": "pass"}
+          )
+          token = response.json()["access_token"]
+
+          # Use token in requests
+          headers = {"Authorization": f"Bearer {token}"}
+          response = requests.get(
+              "https://api.example.com/users/me",
+              headers=headers
+          )
+          ```
+
+      - name: "Common Operations"
+        content: |
+          {for each major endpoint, generate usage example}
+
+# Diagram generation
+diagrams:
+  - type: "C4_Container"
+    description: "System context showing FastAPI app and external dependencies"
+    generation_logic: |
+      1. FastAPI App as main container
+      2. Database as external system
+      3. Auth provider as external system
+      4. Frontend/clients as users
+
+  - type: "Sequence"
+    description: "Authentication flow sequence diagram"
+    generation_logic: |
+      1. Client → POST /token
+      2. API → Verify credentials
+      3. API → Generate JWT
+      4. API → Return token to client
+      5. Client → Use token in Authorization header
+
+  - type: "ER_Diagram"
+    description: "Database schema from Pydantic models"
+    generation_logic: |
+      1. Extract all Pydantic models
+      2. Infer relationships from foreign key patterns
+      3. Generate PlantUML ER diagram
+
+# Example detection workflow
+detection_workflow:
+  steps:
+    - step: 1
+      action: "Check for requirements.txt or pyproject.toml"
+      command: "glob 'requirements.txt' 'pyproject.toml'"
+
+    - step: 2
+      action: "Search for FastAPI imports"
+      command: "grep 'from fastapi import' **/*.py"
+
+    - step: 3
+      action: "Find main application file"
+      command: "grep 'app = FastAPI()' **/*.py"
+
+    - step: 4
+      action: "Locate router modules"
+      command: "glob 'routers/*.py' 'api/*.py'"
+
+    - step: 5
+      action: "Extract route decorators"
+      command: "grep '@(app|router)\\.(get|post|put|delete)' routers/*.py"
+
+# Testing and validation
+testing:
+  documentation_validation:
+    - "Verify all endpoints documented"
+    - "Check Pydantic model completeness"
+    - "Validate OpenAPI spec with validator"
+    - "Test example code snippets"
+
+  automated_extraction:
+    - "Run detection workflow"
+    - "Parse AST for route definitions"
+    - "Generate OpenAPI from FastAPI app"
+    - "Create documentation from templates"
+
+# Notes and best practices
+notes: |
+  FastAPI provides built-in OpenAPI generation at /docs (Swagger UI) and /redoc.
+
+  For brownfield documentation:
+  1. Run app locally
+  2. Access /docs endpoint
+  3. Download openapi.json
+  4. Use as base for manual documentation
+
+  FastAPI best practices to document:
+  - Pydantic models for validation
+  - Dependency injection for shared logic
+  - Background tasks for async operations
+  - WebSocket endpoints (if present)
+  - CORS configuration
+  - Rate limiting and security

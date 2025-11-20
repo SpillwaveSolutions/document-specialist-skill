@@ -4,7 +4,7 @@
 TOKEN_BUDGET: 1000
 TIER: 3
 LOAD_TRIGGER: Intent = DIAGRAM (generate visual documentation)
-DEPENDENCIES: skill.md, reference/04-diagrams.md
+DEPENDENCIES: SKILL.md, reference/04-diagrams.md
 ---
 
 ## Overview

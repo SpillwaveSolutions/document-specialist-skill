@@ -4,7 +4,7 @@
 TOKEN_BUDGET: 750
 TIER: 3
 LOAD_TRIGGER: Intent = CONVERT (transform between formats)
-DEPENDENCIES: skill.md
+DEPENDENCIES: SKILL.md
 ---
 
 ## Overview

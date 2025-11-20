@@ -4,7 +4,7 @@
 TOKEN_BUDGET: 1500
 TIER: 3
 LOAD_TRIGGER: Intent = CREATE_NEW (template-based documentation)
-DEPENDENCIES: skill.md, templates/markdown/*
+DEPENDENCIES: SKILL.md, templates/markdown/*
 ---
 
 ## Overview

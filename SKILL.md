@@ -3,11 +3,97 @@
 ---
 name: "documentation-specialist"
 description: "Creates professional software documentation from templates (greenfield) or reverse-engineers from code (brownfield) using Progressive Disclosure Architecture"
-version: "2.0.0-PDA"
+version: "2.1.0-PDA"
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
-TOKEN_BUDGET: 2500
-TIER: 2
-DEPENDENCIES: SKILL_HEADER.md (Tier 1), workflows/* (Tier 3), reference/* (Tier 3)
+---
+
+## Quick Start
+
+Transform Claude Code into an expert software documentation specialist using Progressive Disclosure Architecture for efficient token management.
+
+**Primary Capabilities:**
+
+1. **Greenfield**: Create documentation from templates (SRS, PRD, SDD, arc42, OpenAPI, User Manuals, Tutorials, Runbooks)
+2. **Brownfield**: Reverse-engineer documentation from code (Spring Boot, FastAPI, Pulumi)
+3. **Audit**: Review and improve existing documentation
+4. **Convert**: Transform between formats (MD, DOCX, PDF)
+5. **Diagram**: Generate visual documentation (Mermaid, PlantUML)
+6. **User Docs**: Create user manuals, how-to guides, getting started guides
+7. **Tutorials**: Build developer tutorials, API guides, CLI documentation
+8. **Runbooks**: Write operational procedures, incident response docs
+
+### Progressive Disclosure Architecture
+
+**This File (SKILL.md)**: Core routing and execution logic (~2,500 tokens)
+**On-Demand Resources**: Workflows, reference guides, templates (~10,000 tokens total, loaded selectively)
+
+**Typical Token Load**: 2,500 tokens (just SKILL.md)
+**With Workflow**: 4,000 tokens (+ single workflow)
+**Maximum Load**: 5,000 tokens (+ workflow + reference guide)
+
+### How It Works
+
+1. **User makes request** → Skill classifies intent
+2. **Intent routing** → Loads appropriate workflow guide
+3. **Executes task** → Follows workflow-specific instructions
+4. **Generates artifacts** → Creates documentation files
+5. **Post-processing** → Offers format conversion, diagram generation
+
+### Command Examples
+
+**Greenfield (Create from Templates):**
+```
+Create an SRS for a billing system with PCI-DSS compliance
+Create a PRD for a real-time collaboration feature
+Generate an arc42 architecture document for microservices platform
+```
+
+**Brownfield (Code-to-Docs):**
+```
+Document my Spring Boot application at ~/projects/customer-api
+Generate deployment documentation from Pulumi at ~/infra
+Extract API documentation from FastAPI app at ~/data-service
+```
+
+**User Documentation:**
+```
+Create a user manual for my SaaS product
+Write a how-to guide for exporting data to CSV
+Build a getting started guide for my CLI tool
+```
+
+**Developer Tutorials:**
+```
+Create a tutorial for building a REST API with FastAPI
+Write an API usage guide for my authentication service
+Generate CLI documentation for my command-line tool
+```
+
+**Operational Runbooks:**
+```
+Create a database failover runbook
+Write a deployment procedure for production releases
+Document incident response for API outages
+```
+
+**Audit & Improve:**
+```
+Audit my API documentation at docs/api/openapi.yaml
+Review my SDD for completeness and clarity
+```
+
+**Convert Formats:**
+```
+Convert docs/srs.md to Word format
+Generate PDF package from all markdown documentation
+```
+
+**Generate Diagrams:**
+```
+Create a C4 container diagram for my microservices
+Generate ER diagram from my JPA entities
+```
+
 ---
 
 ## Overview
@@ -18,28 +104,42 @@ Transform Claude Code into an expert software documentation specialist with two 
 2. **Brownfield Documentation**: Reverse-engineer documentation from existing codebases
 
 **Progressive Disclosure Architecture**:
-- **Tier 1** (Auto-loaded): SKILL_HEADER.md (~250 tokens)
-- **Tier 2** (This file): Core routing and execution logic (~2,500 tokens)
-- **Tier 3** (On-demand): Workflow guides, reference guides, templates (~10,000 tokens total, loaded selectively)
+- **This file**: Core routing and execution logic (~2,500 tokens)
+- **On-demand resources**: Workflow guides, reference guides, templates (~10,000 tokens total, loaded selectively)
 
-**Typical Token Load**: 2,750 tokens (Tier 1 + Tier 2)
-**With Workflow**: 4,250 tokens (+ single Tier 3 workflow)
+**Typical Token Load**: 2,500 tokens (just SKILL.md)
+**With Workflow**: 4,000 tokens (+ single workflow)
 
 ---
 
 ## Core Capabilities
 
 ### 1. Template-Based Creation (Greenfield)
+**Requirements & Design:**
 - Software Requirements Specification (SRS) - IEEE-compliant
 - Product Requirements Document (PRD) - Agile-friendly
 - Software Design Document (SDD) - arc42-based
 - OpenAPI 3.0 API Specification
-- User Guides and KB Articles
-- Deployment Documentation
+
+**User Documentation:**
+- User Manuals - Comprehensive product reference
+- How-To Guides - Task-oriented instructions
+- Getting Started Guides - 5-minute quick start
+- KB Articles - Troubleshooting and support
+
+**Developer Documentation:**
+- Developer Tutorials - Project-based learning
+- API Usage Guides - Integration tutorials
+- CLI Documentation - Command reference
+
+**Operational Documentation:**
+- Runbooks - Incident response, deployment procedures
+- Maintenance Tasks - Backup, scaling, monitoring
+- On-Call Procedures - Alert handling, escalation
 
 ### 2. Code-to-Docs Reverse Engineering (Brownfield)
 **Supported Frameworks:**
-- **Backend**: Spring Boot ✅, FastAPI, Express.js, Django, Flask
+- **Backend**: Spring Boot ✅ (Complete), FastAPI ✅ (Complete), Express.js, Django, Flask
 - **Infrastructure**: Pulumi ✅, Terraform, AWS CDK
 - **Frontend**: React, Next.js, Vue.js
 - **Data**: Python ETL, Apache Airflow
@@ -69,33 +169,58 @@ Transform Claude Code into an expert software documentation specialist with two 
 
 Parse user request and classify intent:
 
-| Intent | Keywords | Tier 3 Workflow |
-|--------|----------|-----------------|
+| Intent | Keywords | Workflow |
+|--------|----------|----------|
 | **CREATE_NEW** | "create", "generate", "write", "new" + document type | `workflows/greenfield-workflow.md` |
 | **CODE_TO_DOCS** | "document", "extract", "generate from code", path reference | `workflows/brownfield-workflow.md` |
 | **AUDIT** | "audit", "review", "check", "improve", "validate" | `workflows/audit-workflow.md` |
 | **CONVERT** | "convert", "transform", "generate PDF", "to Word" | `workflows/convert-workflow.md` |
 | **DIAGRAM** | "diagram", "C4", "sequence", "ER", "flowchart", "visualize" | `workflows/diagram-workflow.md` |
+| **CREATE_USER_DOCS** | "user manual", "how-to", "getting started", "KB article" | `workflows/user-docs-workflow.md` |
+| **CREATE_TUTORIAL** | "tutorial", "API guide", "CLI docs", "developer guide" | `workflows/tutorial-workflow.md` |
+| **CREATE_RUNBOOK** | "runbook", "procedure", "incident", "deployment", "on-call" | `workflows/runbook-workflow.md` |
 
-**IMPORTANT**: After classifying intent, immediately load ONLY the corresponding Tier 3 workflow guide. Do NOT load multiple workflows or all templates upfront.
+**IMPORTANT**: After classifying intent, immediately load ONLY the corresponding workflow guide. Do NOT load multiple workflows or all templates upfront.
 
-### Stage 2: Document Type Identification (for CREATE_NEW)
+### Stage 2: Document Type Identification (for CREATE_NEW, CREATE_USER_DOCS, CREATE_TUTORIAL, CREATE_RUNBOOK)
 
+**Requirements & Design:**
 | Keywords | Document Type | Template |
 |----------|---------------|----------|
-| "SRS", "requirements specification", "formal requirements" | SRS | `templates/markdown/requirements-srs.md` |
-| "PRD", "product requirements", "feature" | PRD | `templates/markdown/requirements-prd.md` |
+| "SRS", "requirements specification" | SRS | `templates/markdown/requirements-srs.md` |
+| "PRD", "product requirements" | PRD | `templates/markdown/requirements-prd.md` |
 | "SDD", "design document" | SDD | `templates/markdown/design-sdd.md` |
 | "arc42", "architecture" | arc42 | `templates/markdown/design-arc42.md` |
-| "OpenAPI", "API spec", "REST API" | OpenAPI | `templates/markdown/api-openapi.yaml` |
+| "OpenAPI", "API spec" | OpenAPI | `templates/markdown/api-openapi.yaml` |
+
+**User Documentation:**
+| Keywords | Document Type | Template |
+|----------|---------------|----------|
+| "user manual", "user guide" | User Manual | `templates/markdown/user-manual.md` |
+| "how-to", "step-by-step" | How-To Guide | `templates/markdown/howto-guide.md` |
+| "getting started", "quick start" | Getting Started | `templates/markdown/getting-started.md` |
+
+**Developer Documentation:**
+| Keywords | Document Type | Template |
+|----------|---------------|----------|
+| "tutorial", "walkthrough" | Developer Tutorial | `templates/markdown/developer-tutorial.md` |
+| "API guide", "integration" | API Usage Guide | (use tutorial template) |
+| "CLI docs", "command reference" | CLI Documentation | (use getting-started template) |
+
+**Operational Documentation:**
+| Keywords | Document Type | Template |
+|----------|---------------|----------|
+| "runbook", "procedure" | Runbook | `templates/markdown/runbook.md` |
+| "incident response" | Incident Runbook | (use runbook template) |
+| "deployment", "release" | Deployment Runbook | (use runbook template) |
 
 ### Stage 3: Framework Detection (for CODE_TO_DOCS)
 
-| Framework | Detection Files | Detection Patterns | Mapping File |
-|-----------|----------------|-------------------|--------------|
-| **Spring Boot** | `pom.xml`, `build.gradle` | `@SpringBootApplication` | `mappings/backend/spring-boot-mapping.yaml` |
-| **FastAPI** | `requirements.txt` | `from fastapi import` | `mappings/backend/fastapi-mapping.yaml` |
-| **Pulumi** | `Pulumi.yaml` | `import pulumi` | `mappings/infrastructure/pulumi-mapping.yaml` |
+| Framework | Detection Files | Detection Patterns | Mapping File | Status |
+|-----------|----------------|-------------------|--------------|--------|
+| **Spring Boot** | `pom.xml`, `build.gradle` | `@SpringBootApplication` | `mappings/backend/spring-boot-mapping.yaml` | ✅ Complete |
+| **FastAPI** | `requirements.txt` | `from fastapi import` | `mappings/backend/fastapi-mapping.yaml` | ✅ Complete |
+| **Pulumi** | `Pulumi.yaml` | `import pulumi` | `mappings/infrastructure/pulumi-mapping.yaml` | 📋 Planned |
 
 **Detection Process:**
 1. Use Glob to find detection files
@@ -144,7 +269,7 @@ Total: ~1,435 tokens
 
 ### Stage 5: Execute
 
-Follow the instructions in the loaded Tier 3 workflow guide. Each workflow guide contains:
+Follow the instructions in the loaded workflow guide. Each workflow guide contains:
 - Step-by-step execution instructions
 - Examples
 - Quality checklists
@@ -220,7 +345,7 @@ Create a sequence diagram for [workflow description]
    - Apply professional formatting
    - Save and offer post-processing
 
-3. **Token budget check**: ~4,000 tokens total (Tier 1 + Tier 2 + Tier 3 workflow + template)
+3. **Token budget check**: ~4,000 tokens total (SKILL.md + workflow + template)
 
 ### For CODE_TO_DOCS (Brownfield)
 
@@ -239,7 +364,7 @@ Create a sequence diagram for [workflow description]
    - Invoke diagram skills (mermaid-architect, plantuml)
    - Save and offer post-processing
 
-3. **Token budget check**: ~5,000 tokens total (Tier 1 + Tier 2 + Tier 3 workflow + mapping)
+3. **Token budget check**: ~5,000 tokens total (SKILL.md + workflow + mapping)
 
 ### For AUDIT
 
@@ -306,17 +431,16 @@ Create a sequence diagram for [workflow description]
 
 ```
 documentation-specialist/
-├── SKILL_HEADER.md                    # Tier 1: Auto-loaded metadata
-├── skill.md                           # Tier 2: This file (core routing)
+├── SKILL.md                           # This file (core routing + quick start)
 │
-├── workflows/                         # Tier 3: On-demand workflows
+├── workflows/                         # On-demand workflows
 │   ├── greenfield-workflow.md         # CREATE_NEW
 │   ├── brownfield-workflow.md         # CODE_TO_DOCS
 │   ├── audit-workflow.md              # AUDIT
 │   ├── convert-workflow.md            # CONVERT
 │   └── diagram-workflow.md            # DIAGRAM
 │
-├── templates/                         # Tier 3: Templates
+├── templates/                         # Document templates
 │   └── markdown/
 │       ├── requirements-srs.md        # IEEE SRS
 │       ├── requirements-prd.md        # Agile PRD
@@ -324,14 +448,14 @@ documentation-specialist/
 │       ├── design-sdd.md              # Software Design Doc
 │       └── design-arc42.md            # arc42 Architecture
 │
-├── mappings/                          # Tier 3: Code-to-docs mappings
+├── mappings/                          # Code-to-docs mappings
 │   ├── backend/
 │   │   ├── spring-boot-mapping.yaml   # ✅ Complete
 │   │   └── fastapi-mapping.yaml
 │   └── infrastructure/
 │       └── pulumi-mapping.yaml
 │
-└── reference/                         # Tier 3: Reference guides
+└── reference/                         # Reference guides
     ├── 01-philosophy.md               # Docs-as-code philosophy
     ├── 02-requirements.md             # Requirements writing
     ├── 03-design.md                   # Design documentation
@@ -341,7 +465,7 @@ documentation-specialist/
     └── comprehensive-guide.md.backup  # Original (archived)
 ```
 
-**Navigation Principle**: Load files from Tier 3 only when explicitly required by the workflow.
+**Navigation Principle**: Load files from on-demand resources only when explicitly required by the workflow.
 
 ---
 
@@ -393,15 +517,14 @@ documentation-specialist/
 **Target per request**: <10,000 tokens total
 
 **Breakdown**:
-- Tier 1 (SKILL_HEADER.md): 250 tokens
-- Tier 2 (skill.md): 2,500 tokens
-- Tier 3 (single workflow): 750-1,500 tokens
-- Tier 3 (template or mapping): 400-800 tokens
-- Tier 3 (optional reference): 200-700 tokens
+- SKILL.md: 2,500 tokens
+- Single workflow: 750-1,500 tokens
+- Template or mapping: 400-800 tokens
+- Optional reference: 200-700 tokens
 
-**Maximum load**: 2,750 + 1,500 + 800 + 700 = 5,750 tokens (well under 10K budget)
+**Maximum load**: 2,500 + 1,500 + 800 + 700 = 5,500 tokens (well under 10K budget)
 
-**Cost savings vs v1.0**: ~42% reduction in typical load (9,000 tokens → 5,000 tokens)
+**Cost savings vs v1.0**: ~39% reduction in typical load (9,000 tokens → 5,500 tokens)
 
 ---
 
@@ -462,6 +585,6 @@ documentation-specialist/
 
 ---
 
-**End of Documentation Specialist Skill (PDA v2.0)**
+**End of Documentation Specialist Skill (PDA v2.1)**
 
 **This skill uses Progressive Disclosure Architecture to minimize token consumption while maintaining full functionality. Workflow guides are loaded on-demand based on user intent.**
