@@ -13,11 +13,14 @@ Transform Claude Code into an expert software documentation specialist using Pro
 
 **Primary Capabilities:**
 
-1. **Greenfield**: Create documentation from templates (SRS, PRD, SDD, arc42, OpenAPI)
-2. **Brownfield**: Reverse-engineer documentation from code (Spring Boot, Pulumi, FastAPI, etc.)
+1. **Greenfield**: Create documentation from templates (SRS, PRD, SDD, arc42, OpenAPI, User Manuals, Tutorials, Runbooks)
+2. **Brownfield**: Reverse-engineer documentation from code (Spring Boot, FastAPI, Pulumi)
 3. **Audit**: Review and improve existing documentation
 4. **Convert**: Transform between formats (MD, DOCX, PDF)
 5. **Diagram**: Generate visual documentation (Mermaid, PlantUML)
+6. **User Docs**: Create user manuals, how-to guides, getting started guides
+7. **Tutorials**: Build developer tutorials, API guides, CLI documentation
+8. **Runbooks**: Write operational procedures, incident response docs
 
 ### Progressive Disclosure Architecture
 
@@ -50,6 +53,27 @@ Generate an arc42 architecture document for microservices platform
 Document my Spring Boot application at ~/projects/customer-api
 Generate deployment documentation from Pulumi at ~/infra
 Extract API documentation from FastAPI app at ~/data-service
+```
+
+**User Documentation:**
+```
+Create a user manual for my SaaS product
+Write a how-to guide for exporting data to CSV
+Build a getting started guide for my CLI tool
+```
+
+**Developer Tutorials:**
+```
+Create a tutorial for building a REST API with FastAPI
+Write an API usage guide for my authentication service
+Generate CLI documentation for my command-line tool
+```
+
+**Operational Runbooks:**
+```
+Create a database failover runbook
+Write a deployment procedure for production releases
+Document incident response for API outages
 ```
 
 **Audit & Improve:**
@@ -91,16 +115,31 @@ Transform Claude Code into an expert software documentation specialist with two 
 ## Core Capabilities
 
 ### 1. Template-Based Creation (Greenfield)
+**Requirements & Design:**
 - Software Requirements Specification (SRS) - IEEE-compliant
 - Product Requirements Document (PRD) - Agile-friendly
 - Software Design Document (SDD) - arc42-based
 - OpenAPI 3.0 API Specification
-- User Guides and KB Articles
-- Deployment Documentation
+
+**User Documentation:**
+- User Manuals - Comprehensive product reference
+- How-To Guides - Task-oriented instructions
+- Getting Started Guides - 5-minute quick start
+- KB Articles - Troubleshooting and support
+
+**Developer Documentation:**
+- Developer Tutorials - Project-based learning
+- API Usage Guides - Integration tutorials
+- CLI Documentation - Command reference
+
+**Operational Documentation:**
+- Runbooks - Incident response, deployment procedures
+- Maintenance Tasks - Backup, scaling, monitoring
+- On-Call Procedures - Alert handling, escalation
 
 ### 2. Code-to-Docs Reverse Engineering (Brownfield)
 **Supported Frameworks:**
-- **Backend**: Spring Boot ✅, FastAPI, Express.js, Django, Flask
+- **Backend**: Spring Boot ✅ (Complete), FastAPI ✅ (Complete), Express.js, Django, Flask
 - **Infrastructure**: Pulumi ✅, Terraform, AWS CDK
 - **Frontend**: React, Next.js, Vue.js
 - **Data**: Python ETL, Apache Airflow
@@ -137,26 +176,51 @@ Parse user request and classify intent:
 | **AUDIT** | "audit", "review", "check", "improve", "validate" | `workflows/audit-workflow.md` |
 | **CONVERT** | "convert", "transform", "generate PDF", "to Word" | `workflows/convert-workflow.md` |
 | **DIAGRAM** | "diagram", "C4", "sequence", "ER", "flowchart", "visualize" | `workflows/diagram-workflow.md` |
+| **CREATE_USER_DOCS** | "user manual", "how-to", "getting started", "KB article" | `workflows/user-docs-workflow.md` |
+| **CREATE_TUTORIAL** | "tutorial", "API guide", "CLI docs", "developer guide" | `workflows/tutorial-workflow.md` |
+| **CREATE_RUNBOOK** | "runbook", "procedure", "incident", "deployment", "on-call" | `workflows/runbook-workflow.md` |
 
 **IMPORTANT**: After classifying intent, immediately load ONLY the corresponding workflow guide. Do NOT load multiple workflows or all templates upfront.
 
-### Stage 2: Document Type Identification (for CREATE_NEW)
+### Stage 2: Document Type Identification (for CREATE_NEW, CREATE_USER_DOCS, CREATE_TUTORIAL, CREATE_RUNBOOK)
 
+**Requirements & Design:**
 | Keywords | Document Type | Template |
 |----------|---------------|----------|
-| "SRS", "requirements specification", "formal requirements" | SRS | `templates/markdown/requirements-srs.md` |
-| "PRD", "product requirements", "feature" | PRD | `templates/markdown/requirements-prd.md` |
+| "SRS", "requirements specification" | SRS | `templates/markdown/requirements-srs.md` |
+| "PRD", "product requirements" | PRD | `templates/markdown/requirements-prd.md` |
 | "SDD", "design document" | SDD | `templates/markdown/design-sdd.md` |
 | "arc42", "architecture" | arc42 | `templates/markdown/design-arc42.md` |
-| "OpenAPI", "API spec", "REST API" | OpenAPI | `templates/markdown/api-openapi.yaml` |
+| "OpenAPI", "API spec" | OpenAPI | `templates/markdown/api-openapi.yaml` |
+
+**User Documentation:**
+| Keywords | Document Type | Template |
+|----------|---------------|----------|
+| "user manual", "user guide" | User Manual | `templates/markdown/user-manual.md` |
+| "how-to", "step-by-step" | How-To Guide | `templates/markdown/howto-guide.md` |
+| "getting started", "quick start" | Getting Started | `templates/markdown/getting-started.md` |
+
+**Developer Documentation:**
+| Keywords | Document Type | Template |
+|----------|---------------|----------|
+| "tutorial", "walkthrough" | Developer Tutorial | `templates/markdown/developer-tutorial.md` |
+| "API guide", "integration" | API Usage Guide | (use tutorial template) |
+| "CLI docs", "command reference" | CLI Documentation | (use getting-started template) |
+
+**Operational Documentation:**
+| Keywords | Document Type | Template |
+|----------|---------------|----------|
+| "runbook", "procedure" | Runbook | `templates/markdown/runbook.md` |
+| "incident response" | Incident Runbook | (use runbook template) |
+| "deployment", "release" | Deployment Runbook | (use runbook template) |
 
 ### Stage 3: Framework Detection (for CODE_TO_DOCS)
 
-| Framework | Detection Files | Detection Patterns | Mapping File |
-|-----------|----------------|-------------------|--------------|
-| **Spring Boot** | `pom.xml`, `build.gradle` | `@SpringBootApplication` | `mappings/backend/spring-boot-mapping.yaml` |
-| **FastAPI** | `requirements.txt` | `from fastapi import` | `mappings/backend/fastapi-mapping.yaml` |
-| **Pulumi** | `Pulumi.yaml` | `import pulumi` | `mappings/infrastructure/pulumi-mapping.yaml` |
+| Framework | Detection Files | Detection Patterns | Mapping File | Status |
+|-----------|----------------|-------------------|--------------|--------|
+| **Spring Boot** | `pom.xml`, `build.gradle` | `@SpringBootApplication` | `mappings/backend/spring-boot-mapping.yaml` | ✅ Complete |
+| **FastAPI** | `requirements.txt` | `from fastapi import` | `mappings/backend/fastapi-mapping.yaml` | ✅ Complete |
+| **Pulumi** | `Pulumi.yaml` | `import pulumi` | `mappings/infrastructure/pulumi-mapping.yaml` | 📋 Planned |
 
 **Detection Process:**
 1. Use Glob to find detection files
