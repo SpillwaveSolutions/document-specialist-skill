@@ -171,14 +171,14 @@ Parse user request and classify intent:
 
 | Intent | Keywords | Workflow |
 |--------|----------|----------|
-| **CREATE_NEW** | "create", "generate", "write", "new" + document type | `references/workflows/greenfield-workflow.md` |
-| **CODE_TO_DOCS** | "document", "extract", "generate from code", path reference | `references/workflows/brownfield-workflow.md` |
-| **AUDIT** | "audit", "review", "check", "improve", "validate" | `references/workflows/audit-workflow.md` |
-| **CONVERT** | "convert", "transform", "generate PDF", "to Word" | `references/workflows/convert-workflow.md` |
-| **DIAGRAM** | "diagram", "C4", "sequence", "ER", "flowchart", "visualize" | `references/workflows/diagram-workflow.md` |
-| **CREATE_USER_DOCS** | "user manual", "how-to", "getting started", "KB article" | `references/workflows/user-docs-workflow.md` |
-| **CREATE_TUTORIAL** | "tutorial", "API guide", "CLI docs", "developer guide" | `references/workflows/tutorial-workflow.md` |
-| **CREATE_RUNBOOK** | "runbook", "procedure", "incident", "deployment", "on-call" | `references/workflows/runbook-workflow.md` |
+| **CREATE_NEW** | "create", "generate", "write", "new" + document type | [greenfield-workflow.md](references/workflows/greenfield-workflow.md) |
+| **CODE_TO_DOCS** | "document", "extract", "generate from code", path reference | [brownfield-workflow.md](references/workflows/brownfield-workflow.md) |
+| **AUDIT** | "audit", "review", "check", "improve", "validate" | [audit-workflow.md](references/workflows/audit-workflow.md) |
+| **CONVERT** | "convert", "transform", "generate PDF", "to Word" | [convert-workflow.md](references/workflows/convert-workflow.md) |
+| **DIAGRAM** | "diagram", "C4", "sequence", "ER", "flowchart", "visualize" | [diagram-workflow.md](references/workflows/diagram-workflow.md) |
+| **CREATE_USER_DOCS** | "user manual", "how-to", "getting started", "KB article" | [user-docs-workflow.md](references/workflows/user-docs-workflow.md) |
+| **CREATE_TUTORIAL** | "tutorial", "API guide", "CLI docs", "developer guide" | [tutorial-workflow.md](references/workflows/tutorial-workflow.md) |
+| **CREATE_RUNBOOK** | "runbook", "procedure", "incident", "deployment", "on-call" | [runbook-workflow.md](references/workflows/runbook-workflow.md) |
 
 **IMPORTANT**: After classifying intent, immediately load ONLY the corresponding workflow guide. Do NOT load multiple workflows or all templates upfront.
 
@@ -187,30 +187,30 @@ Parse user request and classify intent:
 **Requirements & Design:**
 | Keywords | Document Type | Template |
 |----------|---------------|----------|
-| "SRS", "requirements specification" | SRS | `references/templates/markdown/requirements-srs.md` |
-| "PRD", "product requirements" | PRD | `references/templates/markdown/requirements-prd.md` |
-| "SDD", "design document" | SDD | `references/templates/markdown/design-sdd.md` |
-| "arc42", "architecture" | arc42 | `references/templates/markdown/design-arc42.md` |
-| "OpenAPI", "API spec" | OpenAPI | `references/templates/markdown/api-openapi.yaml` |
+| "SRS", "requirements specification" | SRS | [requirements-srs.md](references/templates/markdown/requirements-srs.md) |
+| "PRD", "product requirements" | PRD | [requirements-prd.md](references/templates/markdown/requirements-prd.md) |
+| "SDD", "design document" | SDD | [design-sdd.md](references/templates/markdown/design-sdd.md) |
+| "arc42", "architecture" | arc42 | [design-arc42.md](references/templates/markdown/design-arc42.md) |
+| "OpenAPI", "API spec" | OpenAPI | [api-openapi.yaml](references/templates/markdown/api-openapi.yaml) |
 
 **User Documentation:**
 | Keywords | Document Type | Template |
 |----------|---------------|----------|
-| "user manual", "user guide" | User Manual | `references/templates/markdown/user-manual.md` |
-| "how-to", "step-by-step" | How-To Guide | `references/templates/markdown/howto-guide.md` |
-| "getting started", "quick start" | Getting Started | `references/templates/markdown/getting-started.md` |
+| "user manual", "user guide" | User Manual | [user-manual.md](references/templates/markdown/user-manual.md) |
+| "how-to", "step-by-step" | How-To Guide | [howto-guide.md](references/templates/markdown/howto-guide.md) |
+| "getting started", "quick start" | Getting Started | [getting-started.md](references/templates/markdown/getting-started.md) |
 
 **Developer Documentation:**
 | Keywords | Document Type | Template |
 |----------|---------------|----------|
-| "tutorial", "walkthrough" | Developer Tutorial | `references/templates/markdown/developer-tutorial.md` |
+| "tutorial", "walkthrough" | Developer Tutorial | [developer-tutorial.md](references/templates/markdown/developer-tutorial.md) |
 | "API guide", "integration" | API Usage Guide | (use tutorial template) |
 | "CLI docs", "command reference" | CLI Documentation | (use getting-started template) |
 
 **Operational Documentation:**
 | Keywords | Document Type | Template |
 |----------|---------------|----------|
-| "runbook", "procedure" | Runbook | `references/templates/markdown/runbook.md` |
+| "runbook", "procedure" | Runbook | [runbook.md](references/templates/markdown/runbook.md) |
 | "incident response" | Incident Runbook | (use runbook template) |
 | "deployment", "release" | Deployment Runbook | (use runbook template) |
 
@@ -218,9 +218,9 @@ Parse user request and classify intent:
 
 | Framework | Detection Files | Detection Patterns | Mapping File | Status |
 |-----------|----------------|-------------------|--------------|--------|
-| **Spring Boot** | `pom.xml`, `build.gradle` | `@SpringBootApplication` | `references/mappings/backend/spring-boot-mapping.yaml` | ✅ Complete |
-| **FastAPI** | `requirements.txt` | `from fastapi import` | `references/mappings/backend/fastapi-mapping.yaml` | ✅ Complete |
-| **Pulumi** | `Pulumi.yaml` | `import pulumi` | `references/mappings/infrastructure/pulumi-mapping.yaml` | 📋 Planned |
+| **Spring Boot** | `pom.xml`, `build.gradle` | `@SpringBootApplication` | [spring-boot-mapping.yaml](references/mappings/backend/spring-boot-mapping.yaml) | ✅ Complete |
+| **FastAPI** | `requirements.txt` | `from fastapi import` | [fastapi-mapping.yaml](references/mappings/backend/fastapi-mapping.yaml) | ✅ Complete |
+| **Pulumi** | `Pulumi.yaml` | `import pulumi` | [pulumi-mapping.yaml](references/mappings/infrastructure/pulumi-mapping.yaml) | 📋 Planned |
 
 **Detection Process:**
 1. Use Glob to find detection files
@@ -232,40 +232,30 @@ Parse user request and classify intent:
 **CRITICAL**: Load ONLY what is needed for the current task. Use Progressive Disclosure.
 
 **For CREATE_NEW (Greenfield):**
-```
-Load: references/workflows/greenfield-workflow.md (1,500 tokens)
-Load: references/templates/markdown/{doc-type}.md (500-800 tokens)
-Optional: references/reference/02-requirements.md OR references/reference/03-design.md (400 tokens)
-Total: ~2,400 tokens
-```
+- Load: [greenfield-workflow.md](references/workflows/greenfield-workflow.md) (1,500 tokens)
+- Load: [templates/markdown/{doc-type}.md](references/templates/markdown/) (500-800 tokens)
+- Optional: [02-requirements-writing.md](references/reference/02-requirements-writing.md) OR [03-design-arc42.md](references/reference/03-design-arc42.md) (400 tokens)
+- Total: ~2,400 tokens
 
 **For CODE_TO_DOCS (Brownfield):**
-```
-Load: references/workflows/brownfield-workflow.md (1,500 tokens)
-Load: references/mappings/{framework}-mapping.yaml (500 tokens)
-Optional: references/reference/09-code-to-docs.md (385 tokens)
-Total: ~2,385 tokens
-```
+- Load: [brownfield-workflow.md](references/workflows/brownfield-workflow.md) (1,500 tokens)
+- Load: [mappings/{framework}-mapping.yaml](references/mappings/) (500 tokens)
+- Optional: [09-code-to-docs-workflow.md](references/reference/09-code-to-docs-workflow.md) (385 tokens)
+- Total: ~2,385 tokens
 
 **For AUDIT:**
-```
-Load: references/workflows/audit-workflow.md (1,000 tokens)
-Optional: references/reference/quality-checklist.md (250 tokens)
-Total: ~1,250 tokens
-```
+- Load: [audit-workflow.md](references/workflows/audit-workflow.md) (1,000 tokens)
+- Optional: [10-quality-checklist.md](references/reference/10-quality-checklist.md) (250 tokens)
+- Total: ~1,250 tokens
 
 **For CONVERT:**
-```
-Load: references/workflows/convert-workflow.md (750 tokens)
-Total: ~750 tokens
-```
+- Load: [convert-workflow.md](references/workflows/convert-workflow.md) (750 tokens)
+- Total: ~750 tokens
 
 **For DIAGRAM:**
-```
-Load: references/workflows/diagram-workflow.md (1,000 tokens)
-Optional: references/reference/04-diagrams.md (435 tokens)
-Total: ~1,435 tokens
-```
+- Load: [diagram-workflow.md](references/workflows/diagram-workflow.md) (1,000 tokens)
+- Optional: [04-diagrams-selection.md](references/reference/04-diagrams-selection.md) (435 tokens)
+- Total: ~1,435 tokens
 
 ### Stage 5: Execute
 
@@ -335,7 +325,7 @@ Create a sequence diagram for [workflow description]
 
 ### For CREATE_NEW (Greenfield)
 
-1. **Load workflow**: Read `references/workflows/greenfield-workflow.md`
+1. **Load workflow**: Read [greenfield-workflow.md](references/workflows/greenfield-workflow.md)
 2. **Follow workflow steps**:
    - Identify document type
    - Load appropriate template
@@ -349,7 +339,7 @@ Create a sequence diagram for [workflow description]
 
 ### For CODE_TO_DOCS (Brownfield)
 
-1. **Load workflow**: Read `references/workflows/brownfield-workflow.md`
+1. **Load workflow**: Read [brownfield-workflow.md](references/workflows/brownfield-workflow.md)
 2. **Follow workflow steps**:
    - Detect framework (Glob + Grep)
    - Load framework mapping
@@ -368,7 +358,7 @@ Create a sequence diagram for [workflow description]
 
 ### For AUDIT
 
-1. **Load workflow**: Read `references/workflows/audit-workflow.md`
+1. **Load workflow**: Read [audit-workflow.md](references/workflows/audit-workflow.md)
 2. **Follow workflow steps**:
    - Identify document type
    - Run quality checklist
@@ -380,7 +370,7 @@ Create a sequence diagram for [workflow description]
 
 ### For CONVERT
 
-1. **Load workflow**: Read `references/workflows/convert-workflow.md`
+1. **Load workflow**: Read [convert-workflow.md](references/workflows/convert-workflow.md)
 2. **Follow workflow steps**:
    - Identify source and target formats
    - Prepare source document
@@ -392,7 +382,7 @@ Create a sequence diagram for [workflow description]
 
 ### For DIAGRAM
 
-1. **Load workflow**: Read `references/workflows/diagram-workflow.md`
+1. **Load workflow**: Read [diagram-workflow.md](references/workflows/diagram-workflow.md)
 2. **Follow workflow steps**:
    - Identify diagram type
    - Gather diagram content
@@ -539,40 +529,49 @@ documentation-specialist/
 **Do NOT load these unless explicitly needed for the current task:**
 
 ### Workflow Guides (Load based on intent)
-- `references/workflows/greenfield-workflow.md` - Template-based creation
-- `references/workflows/brownfield-workflow.md` - Code-to-docs extraction
-- `references/workflows/audit-workflow.md` - Documentation review
-- `references/workflows/convert-workflow.md` - Format conversion
-- `references/workflows/diagram-workflow.md` - Diagram generation
+- [greenfield-workflow.md](references/workflows/greenfield-workflow.md) - Template-based creation
+- [brownfield-workflow.md](references/workflows/brownfield-workflow.md) - Code-to-docs extraction
+- [audit-workflow.md](references/workflows/audit-workflow.md) - Documentation review
+- [convert-workflow.md](references/workflows/convert-workflow.md) - Format conversion
+- [diagram-workflow.md](references/workflows/diagram-workflow.md) - Diagram generation
+- [user-docs-workflow.md](references/workflows/user-docs-workflow.md) - User documentation
+- [tutorial-workflow.md](references/workflows/tutorial-workflow.md) - Developer tutorials
+- [runbook-workflow.md](references/workflows/runbook-workflow.md) - Operational runbooks
 
 ### Reference Guides (Load when deep dive needed)
-- `references/reference/01-philosophy.md` - Docs-as-code principles
-- `references/reference/02-requirements.md` - Requirements writing best practices
-- `references/reference/03-design.md` - Design documentation guidance
-- `references/reference/04-diagrams.md` - Diagram type selection
-- `references/reference/05-api-docs.md` - API documentation (Stripe analysis)
-- `references/reference/09-code-to-docs.md` - Reverse engineering methodology
+- [01-philosophy.md](references/reference/01-philosophy.md) - Docs-as-code principles
+- [02-requirements-writing.md](references/reference/02-requirements-writing.md) - Requirements writing best practices
+- [03-design-arc42.md](references/reference/03-design-arc42.md) - Design documentation guidance
+- [04-diagrams-selection.md](references/reference/04-diagrams-selection.md) - Diagram type selection
+- [05-api-stripe-gold-standard.md](references/reference/05-api-stripe-gold-standard.md) - API documentation (Stripe analysis)
+- [09-code-to-docs-workflow.md](references/reference/09-code-to-docs-workflow.md) - Reverse engineering methodology
+- [10-quality-checklist.md](references/reference/10-quality-checklist.md) - Quality checklist
 
 ### Templates (Load based on document type)
-- `references/templates/markdown/requirements-srs.md` - IEEE SRS
-- `references/templates/markdown/requirements-prd.md` - Agile PRD
-- `references/templates/markdown/api-openapi.yaml` - OpenAPI 3.0
-- `references/templates/markdown/design-sdd.md` - Software Design Doc
-- `references/templates/markdown/design-arc42.md` - arc42 Architecture
+- [requirements-srs.md](references/templates/markdown/requirements-srs.md) - IEEE SRS
+- [requirements-prd.md](references/templates/markdown/requirements-prd.md) - Agile PRD
+- [api-openapi.yaml](references/templates/markdown/api-openapi.yaml) - OpenAPI 3.0
+- [user-manual.md](references/templates/markdown/user-manual.md) - User Manual
+- [developer-tutorial.md](references/templates/markdown/developer-tutorial.md) - Developer Tutorial
+- [getting-started.md](references/templates/markdown/getting-started.md) - Getting Started Guide
+- [howto-guide.md](references/templates/markdown/howto-guide.md) - How-To Guide
+- [runbook.md](references/templates/markdown/runbook.md) - Operational Runbook
 
 ### Examples (Few-Shot Learning - Load via TOC)
-- **`references/examples/TOC.md`** - Navigation index to all examples (150 tokens)
-  - `references/examples/greenfield/billing-srs.md` - Payment processing SRS (1,200 tokens)
-  - `references/examples/greenfield/collaboration-prd.md` - Team collaboration PRD (1,000 tokens)
-  - `references/examples/greenfield/task-api-openapi.yaml` - Task management API (1,500 tokens)
-  - `references/examples/greenfield/adr-microservices.md` - Microservices ADR (400 tokens)
+- **[TOC.md](references/examples/TOC.md)** - Navigation index to all examples (150 tokens)
+  - [billing-srs.md](references/examples/greenfield/billing-srs.md) - Payment processing SRS (1,200 tokens)
+  - [collaboration-prd.md](references/examples/greenfield/collaboration-prd.md) - Team collaboration PRD (1,000 tokens)
+  - [adr-microservices.md](references/examples/greenfield/adr-microservices.md) - Microservices ADR (400 tokens)
+  - [taskmanager-user-manual.md](references/examples/greenfield/taskmanager-user-manual.md) - User Manual example
+  - [rest-api-tutorial.md](references/examples/greenfield/rest-api-tutorial.md) - REST API tutorial
+  - [cli-getting-started.md](references/examples/greenfield/cli-getting-started.md) - CLI getting started
+  - [database-failover-runbook.md](references/examples/brownfield/database-failover-runbook.md) - Database failover runbook
 
-**IMPORTANT**: Load references/examples/TOC.md first, then load ONLY the relevant example via link, not all examples.
+**IMPORTANT**: Load [TOC.md](references/examples/TOC.md) first, then load ONLY the relevant example via link, not all examples.
 
 ### Mappings (Load based on detected framework)
-- `references/mappings/backend/spring-boot-mapping.yaml` - Spring Boot (complete)
-- `references/mappings/backend/fastapi-mapping.yaml` - FastAPI (planned)
-- `references/mappings/infrastructure/pulumi-mapping.yaml` - Pulumi (planned)
+- [spring-boot-mapping.yaml](references/mappings/backend/spring-boot-mapping.yaml) - Spring Boot (complete)
+- [fastapi-mapping.yaml](references/mappings/backend/fastapi-mapping.yaml) - FastAPI (complete)
 
 ---
 
