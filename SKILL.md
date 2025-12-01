@@ -1,11 +1,11 @@
-# Documentation Specialist Skill
-
 ---
 name: "documentation-specialist"
 description: "Creates professional software documentation from templates (greenfield) or reverse-engineers from code (brownfield) using Progressive Disclosure Architecture"
 version: "2.1.0-PDA"
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
 ---
+
+# Documentation Specialist Skill
 
 ## Quick Start
 
