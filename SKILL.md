@@ -5,6 +5,7 @@ description: |
   user manuals, tutorials, runbooks) from templates (greenfield) or reverse-engineering documentation
   from existing code like Spring Boot or FastAPI (brownfield). Also handles documentation audits/reviews,
   format conversion (Markdown, DOCX, PDF), and diagram generation (C4, Mermaid, PlantUML, ER, sequence).
+  Use when asked to "create documentation", "document my code", "write SRS", "generate PRD", or "documentation specialist".
 version: "3.0-PDA"
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
 ---
@@ -13,7 +14,7 @@ allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
 
 ## Quick Start
 
-Transform Claude Code into an expert software documentation specialist.
+Software documentation creation, extraction, conversion, and diagramming capabilities.
 
 **Capabilities:**
 1. **Greenfield** - Create documentation from templates (SRS, PRD, OpenAPI, User Manuals, Tutorials, Runbooks)
