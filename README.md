@@ -1,20 +1,56 @@
 # Documentation Specialist Skill
 
-**Version**: 2.0.0-PDA
-**Status**: ✅ Production Ready (PDA-Compliant)
+**Version**: 3.0-PDA
+**Status**: Production Ready (PDA-Compliant)
 **Author**: Created with Claude Code
 **Last Updated**: 2025-01-13
 
+Transform Claude Code into an expert software documentation specialist with **Progressive Disclosure Architecture (PDA)** for maximum efficiency.
+
 ---
 
-## 🎯 Overview
+## Installation
 
-Transform Claude Code into an expert software documentation specialist with **Progressive Disclosure Architecture (PDA)** for maximum efficiency.
+### One-Click Install via Skilz Marketplace
+
+Install this skill instantly from the [Skilz Marketplace](https://skillzwave.ai/skill/SpillwaveSolutions__document-specialist-skill__documentation-specialist__SKILL/):
+
+```bash
+skilz install SpillwaveSolutions_document-specialist-skill/documentation-specialist
+```
+
+### Manual Installation
+
+Clone directly into your Claude Code skills directory:
+
+```bash
+# Navigate to your skills directory
+cd ~/.claude/skills
+
+# Clone the repository
+git clone https://github.com/SpillwaveSolutions/document-specialist-skill.git
+```
+
+### Verify Installation
+
+After installation, verify the skill is available:
+
+```bash
+# List installed skills
+ls ~/.claude/skills/document-specialist-skill
+
+# Or ask Claude Code
+# "List my installed skills"
+```
+
+---
+
+## Overview
 
 ### Two Primary Capabilities
 
-1. **📝 Greenfield Documentation**: Create professional documentation from templates for new projects
-2. **🔄 Brownfield Documentation**: Reverse-engineer documentation from existing codebases
+1. **Greenfield Documentation**: Create professional documentation from templates for new projects
+2. **Brownfield Documentation**: Reverse-engineer documentation from existing codebases
 
 ### PDA Architecture (54% Token Reduction)
 
@@ -23,11 +59,11 @@ This skill uses **Progressive Disclosure Architecture** to minimize token consum
 - **Core** (Auto-loaded): `SKILL.md` (~2,500 tokens) - Routing, execution logic, and quick start
 - **On-demand**: Workflow guides, templates, mappings (~10,000 tokens, loaded selectively)
 
-**Typical Token Load**: 2,500 tokens (just SKILL.md) to 5,000 tokens (with workflow) = **44-72% reduction vs v1.0** ✅
+**Typical Token Load**: 2,500 tokens (just SKILL.md) to 5,000 tokens (with workflow) = **44-72% reduction vs v1.0**
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 ### 1. Template-Based Creation (Greenfield)
 
@@ -35,49 +71,45 @@ Create professional documentation from scratch using industry-standard templates
 
 | Document Type | Standard | Status | Use Case |
 |---------------|----------|--------|----------|
-| **SRS** (Software Requirements Specification) | IEEE 830 | ✅ Complete | Formal requirements, compliance, contracts |
-| **PRD** (Product Requirements Document) | Agile/Modern | ✅ Complete | Feature planning, sprint planning |
-| **SDD** (Software Design Document) | arc42 | ✅ Template | Technical design, architecture |
-| **OpenAPI** 3.0 | OpenAPI Spec | ✅ Complete | REST API documentation |
-| **User Guides** | - | 📋 Template | End-user documentation |
-| **Deployment Docs** | - | 📋 Template | DevOps, infrastructure |
+| **SRS** (Software Requirements Specification) | IEEE 830 | Complete | Formal requirements, compliance, contracts |
+| **PRD** (Product Requirements Document) | Agile/Modern | Complete | Feature planning, sprint planning |
+| **SDD** (Software Design Document) | arc42 | Template | Technical design, architecture |
+| **OpenAPI** 3.0 | OpenAPI Spec | Complete | REST API documentation |
+| **User Guides** | - | Template | End-user documentation |
+| **Deployment Docs** | - | Template | DevOps, infrastructure |
 
 ### 2. Code-to-Docs Reverse Engineering (Brownfield)
 
 Automatically generate documentation from existing code:
 
 **Backend Frameworks:**
-- ✅ **Spring Boot** (Fully mapped) - Controllers → OpenAPI, Entities → ER diagrams, Services → SDD
-- 📋 FastAPI, Express.js, Django, Flask (Planned)
+- **Spring Boot** (Fully mapped) - Controllers to OpenAPI, Entities to ER diagrams, Services to SDD
+- FastAPI, Express.js, Django, Flask (Planned)
 
 **Infrastructure:**
-- ✅ **Pulumi** (Fully mapped) - Resources → deployment docs, architecture diagrams
-- 📋 Terraform, AWS CDK (Planned)
+- **Pulumi** (Fully mapped) - Resources to deployment docs, architecture diagrams
+- Terraform, AWS CDK (Planned)
 
 **Frontend:**
-- 📋 React, Next.js, Vue.js (Planned)
+- React, Next.js, Vue.js (Planned)
 
-**Data & CLI:**
-- 📋 Python ETL, Apache Airflow, CLIs (Planned)
+**Data and CLI:**
+- Python ETL, Apache Airflow, CLIs (Planned)
 
-**Legend:**
-- ✅ = Fully implemented with `mappings/{framework}-mapping.yaml`
-- 📋 = Planned (can still document using generic approach)
+### 3. Documentation Audit and Quality Control
 
-### 3. Documentation Audit & Quality Control
-
-- ✅ Automated quality checklists (SRS, PRD, SDD, OpenAPI, User Docs)
-- ✅ Gap analysis and completeness scoring
-- ✅ Best practices validation (IEEE, OpenAPI, WCAG)
-- ✅ Improvement recommendations with examples
-- ✅ Automated fixes for common issues
+- Automated quality checklists (SRS, PRD, SDD, OpenAPI, User Docs)
+- Gap analysis and completeness scoring
+- Best practices validation (IEEE, OpenAPI, WCAG)
+- Improvement recommendations with examples
+- Automated fixes for common issues
 
 ### 4. Multi-Format Output
 
-- ✅ **Markdown** (Primary format, Git-friendly)
-- ✅ **DOCX** (Microsoft Word via `docx` skill)
-- ✅ **PDF** (Professional documents via `pdf` skill)
-- ✅ **Diagrams** (Mermaid, PlantUML via skills)
+- **Markdown** (Primary format, Git-friendly)
+- **DOCX** (Microsoft Word via `docx` skill)
+- **PDF** (Professional documents via `pdf` skill)
+- **Diagrams** (Mermaid, PlantUML via skills)
 
 ### 5. Visual Documentation
 
@@ -92,92 +124,99 @@ Automatically generate documentation from existing code:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Example 1: Create a Requirements Document
+
 ```
 Create a Software Requirements Specification for a payment processing system
 ```
+
 **Generates**: IEEE-compliant SRS with functional requirements, NFRs, acceptance criteria
 
 ### Example 2: Document Existing Spring Boot App
+
 ```
 Document my Spring Boot application at ~/projects/ecommerce-api
 ```
+
 **Generates**: SDD (arc42), OpenAPI spec, C4 diagram, ER diagram, Component diagram
 
 ### Example 3: Audit API Documentation
+
 ```
 Audit my OpenAPI specification at docs/api/openapi.yaml
 ```
+
 **Generates**: Audit report with quality score, gap analysis, recommendations
 
 ### Example 4: Convert to Multiple Formats
+
 ```
 Convert docs/requirements/billing-srs.md to Word format
 ```
+
 **Generates**: Professionally styled DOCX with TOC, styles, formatting
 
 ### Example 5: Generate Architecture Diagrams
+
 ```
 Create a C4 container diagram for my e-commerce microservices platform
 ```
+
 **Generates**: C4 container diagram showing services, databases, external systems
 
 ---
 
-## 📁 Directory Structure (PDA v2.0)
+## Directory Structure (PDA v3.0)
 
 ```
 documentation-specialist/
-├── SKILL.md                           # Core routing logic + quick start (2,500 tokens)
-├── PDA_MIGRATION_SUMMARY.md           # Migration documentation
-├── USER_GUIDE.md                      # ← Comprehensive user guide
-│
-├── workflows/                         # Tier 3: On-demand workflow guides
-│   ├── greenfield-workflow.md         # Template-based creation (1,500 tokens)
-│   ├── brownfield-workflow.md         # Code-to-docs extraction (1,500 tokens)
-│   ├── audit-workflow.md              # Documentation review (1,000 tokens)
-│   ├── convert-workflow.md            # Format conversion (750 tokens)
-│   └── diagram-workflow.md            # Diagram generation (1,000 tokens)
-│
-├── templates/                         # Tier 3: Document templates
-│   └── markdown/
-│       ├── requirements-srs.md        # IEEE SRS (600+ lines)
-│       ├── requirements-prd.md        # Agile PRD (500+ lines)
-│       ├── api-openapi.yaml           # OpenAPI 3.0 (800+ lines)
-│       ├── design-sdd.md              # Software Design Doc
-│       └── design-arc42.md            # arc42 Architecture
-│
-├── mappings/                          # Tier 3: Code-to-docs mappings
-│   ├── backend/
-│   │   ├── spring-boot-mapping.yaml   # ✅ Complete
-│   │   └── fastapi-mapping.yaml       # 📋 Planned
-│   └── infrastructure/
-│       └── pulumi-mapping.yaml        # 📋 Planned
-│
-├── reference/                         # Tier 3: Reference guides
-│   ├── 01-philosophy.md               # Docs-as-code principles (190 tokens)
-│   ├── 02-requirements.md             # Requirements writing (planned)
-│   ├── 03-design.md                   # Design docs (planned)
-│   ├── 04-diagrams.md                 # Diagram selection (planned)
-│   ├── 05-api-docs.md                 # API documentation (planned)
-│   └── comprehensive-guide.md.backup  # Original guide (archived)
-│
-├── examples/                          # Example documentation
-│   ├── greenfield/                    # Template-based examples
-│   └── brownfield/                    # Code-to-docs examples
-│
-└── guides/                            # Framework-specific guides
-    ├── requirements/                  # Requirements documentation
-    └── code-to-docs/                  # Code extraction guides
-        ├── backend/
-        └── infrastructure/
+|-- SKILL.md                           # Core routing logic + quick start (2,500 tokens)
+|-- README.md                          # This file
+|-- USER_GUIDE.md                      # Comprehensive user guide
+|
+|-- references/
+|   |-- workflows/                     # On-demand workflow guides
+|   |   |-- greenfield-workflow.md     # Template-based creation (1,500 tokens)
+|   |   |-- brownfield-workflow.md     # Code-to-docs extraction (1,500 tokens)
+|   |   |-- audit-workflow.md          # Documentation review (1,000 tokens)
+|   |   |-- convert-workflow.md        # Format conversion (750 tokens)
+|   |   |-- diagram-workflow.md        # Diagram generation (1,000 tokens)
+|   |   |-- user-docs-workflow.md      # User documentation
+|   |   |-- tutorial-workflow.md       # Tutorial creation
+|   |   |-- runbook-workflow.md        # Operational runbooks
+|   |   +-- TOC.md                     # Navigation index
+|   |
+|   |-- templates/                     # Document templates
+|   |   +-- markdown/
+|   |       |-- requirements-srs.md    # IEEE SRS (600+ lines)
+|   |       |-- requirements-prd.md    # Agile PRD (500+ lines)
+|   |       |-- api-openapi.yaml       # OpenAPI 3.0 (800+ lines)
+|   |       |-- user-manual.md         # User manual template
+|   |       |-- howto-guide.md         # How-to guide template
+|   |       |-- getting-started.md     # Getting started template
+|   |       |-- developer-tutorial.md  # Developer tutorial
+|   |       +-- runbook.md             # Runbook template
+|   |
+|   |-- mappings/                      # Code-to-docs mappings
+|   |   +-- backend/
+|   |       |-- spring-boot-mapping.yaml  # Complete
+|   |       +-- fastapi-mapping.yaml      # Complete
+|   |
+|   |-- reference/                     # Reference guides
+|   |   |-- comprehensive-guide.md     # Navigation to all 27 guides
+|   |   +-- 01-philosophy.md           # Docs-as-code principles
+|   |
+|   +-- examples/                      # Example documentation
+|       |-- TOC.md                     # Navigation to all examples
+|       |-- greenfield/                # Template-based examples
+|       +-- brownfield/                # Code-to-docs examples
 ```
 
 ---
 
-## 🎯 How It Works (PDA Flow)
+## How It Works (PDA Flow)
 
 ### User Request Flow
 
@@ -192,7 +231,7 @@ documentation-specialist/
 
 ### Intent Classification
 
-The skill automatically classifies your request into one of five intents:
+The skill automatically classifies your request into one of eight intents:
 
 | Intent | Trigger Keywords | Workflow Loaded | Typical Tokens |
 |--------|-----------------|----------------|----------------|
@@ -201,56 +240,40 @@ The skill automatically classifies your request into one of five intents:
 | **AUDIT** | "audit", "review", "check", "improve" | audit-workflow.md | ~4,000 |
 | **CONVERT** | "convert", "transform", "to Word/PDF" | convert-workflow.md | ~3,500 |
 | **DIAGRAM** | "diagram", "C4", "sequence", "visualize" | diagram-workflow.md | ~4,200 |
+| **USER_DOCS** | "user manual", "how-to", "getting started" | user-docs-workflow.md | ~3,500 |
+| **TUTORIAL** | "tutorial", "API guide", "CLI docs" | tutorial-workflow.md | ~3,500 |
+| **RUNBOOK** | "runbook", "procedure", "incident" | runbook-workflow.md | ~3,500 |
 
 ---
 
-## 🛠️ Integration with Other Skills
+## Integration with Other Skills
 
 This skill seamlessly integrates with other Claude Code skills:
 
 | Skill | Purpose | Auto-Invoked? | Use Case |
 |-------|---------|---------------|----------|
-| **docx** | Word document creation/conversion | ✅ When requested | MD → DOCX conversion, professional styling |
-| **pdf** | PDF generation | ✅ When requested | MD/DOCX → PDF, documentation packages |
-| **plantuml** | UML diagram generation | ✅ For UML diagrams | ER, sequence, class, state machine diagrams |
-| **mermaid-architect** | C4 diagram generation | ✅ For C4 diagrams | System context, container, component diagrams |
+| **docx** | Word document creation/conversion | Yes when requested | MD to DOCX conversion, professional styling |
+| **pdf** | PDF generation | Yes when requested | MD/DOCX to PDF, documentation packages |
+| **plantuml** | UML diagram generation | Yes for UML diagrams | ER, sequence, class, state machine diagrams |
+| **mermaid-architect** | C4 diagram generation | Yes for C4 diagrams | System context, container, component diagrams |
 
-**Auto-invocation**: The skill automatically calls these skills when needed, you don't need to invoke them manually.
+**Auto-invocation**: The skill automatically calls these skills when needed, you do not need to invoke them manually.
 
 ---
 
-## 📚 Documentation Philosophy
+## Documentation Philosophy
 
 This skill follows **Docs-as-Code** principles:
 
 1. **Living Documentation**: Update docs in the same commit as code changes
-2. **Minimum Viable Documentation**: Small, fresh, accurate docs > large stale docs
+2. **Minimum Viable Documentation**: Small, fresh, accurate docs over large stale docs
 3. **The Bonsai Tree Principle**: Alive but frequently trimmed
 4. **Audience-Specific**: Different docs for stakeholders, developers, users
 5. **Git-Friendly**: Markdown primary format, version controlled with code
 
 ---
 
-## 🎓 Learning Resources
-
-### For New Users
-1. **Quick Start**: See examples above
-2. **User Guide**: `USER_GUIDE.md` (comprehensive feature documentation)
-3. **Quick Reference**: `QUICK_START.md` (5-minute tutorial)
-
-### For Advanced Users
-4. **PDA Architecture**: `PDA_MIGRATION_SUMMARY.md` (token optimization details)
-5. **Workflow Guides**: `workflows/*.md` (detailed execution workflows)
-6. **Reference Guides**: `reference/*.md` (best practices, philosophy)
-
-### For Contributors
-7. **Implementation**: `IMPLEMENTATION_SUMMARY.md` (technical architecture)
-8. **Mappings**: `mappings/backend/spring-boot-mapping.yaml` (code-to-docs example)
-9. **Templates**: `templates/markdown/*.md` (document structure examples)
-
----
-
-## 🎯 Use Cases
+## Use Cases
 
 ### Use Case 1: Starting a New Project (Greenfield)
 
@@ -319,7 +342,7 @@ Document my Spring Boot application at ~/projects/customer-api
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### Custom Templates
 
@@ -343,7 +366,7 @@ See `mappings/backend/spring-boot-mapping.yaml` for a complete example.
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Issue: Framework not detected
 
@@ -398,35 +421,33 @@ prescription management, and EHR integration. Must support 10,000 concurrent use
 
 ---
 
-## 📊 Performance Metrics (v2.0-PDA)
+## Performance Metrics (v3.0-PDA)
 
-| Metric | v1.0 | v2.0-PDA | Improvement |
+| Metric | v1.0 | v3.0-PDA | Improvement |
 |--------|------|----------|-------------|
-| **SKILL.md size** | 954 lines | 458 lines | 52% reduction |
+| **SKILL.md size** | 954 lines | ~140 lines | 85% reduction |
 | **Typical token load** | ~9,000 | ~4,140 | 54% reduction |
 | **Initial load** | 4,770 tokens | 2,750 tokens | 42% reduction |
-| **Largest file** | 954 lines | 458 lines | PDA compliant ✅ |
-| **Workflow files** | 1 monolithic | 5 focused | Better organization ✅ |
+| **Workflow files** | 1 monolithic | 8 focused | Better organization |
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-### v2.1 (Planned)
-- [ ] Complete FastAPI mapping
+### v3.1 (Planned)
 - [ ] Complete React mapping
 - [ ] Terraform infrastructure mapping
-- [ ] Split remaining reference guides (02-10)
-- [ ] Add more brownfield examples
+- [ ] Additional reference guides
+- [ ] More brownfield examples
 
-### v2.2 (Future)
+### v3.2 (Future)
 - [ ] Confluence integration
 - [ ] Multi-language support (ES, FR, DE)
 - [ ] Custom template system
 - [ ] Documentation validation/linting
 - [ ] Automated change detection
 
-### v3.0 (Long-term)
+### v4.0 (Long-term)
 - [ ] Interactive documentation websites
 - [ ] Documentation testing (docs as tests)
 - [ ] AI-powered gap analysis
@@ -434,7 +455,7 @@ prescription management, and EHR integration. Must support 10,000 concurrent use
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 To improve this skill:
 
@@ -446,43 +467,20 @@ To improve this skill:
 
 ---
 
-## 📜 License
+## Learning Resources
 
-This skill synthesizes best practices from:
-- Industry standards (IEEE, ISO, OpenAPI)
-- Open-source documentation projects
-- Enterprise documentation patterns
-- Academic software engineering research
+### For New Users
+1. **Quick Start**: See examples above
+2. **User Guide**: `USER_GUIDE.md` (comprehensive feature documentation)
 
----
+### For Advanced Users
+3. **PDA Architecture**: Understand token optimization details
+4. **Workflow Guides**: `references/workflows/*.md` (detailed execution workflows)
+5. **Reference Guides**: `references/reference/*.md` (best practices, philosophy)
 
-## 🙏 Acknowledgments
-
-Created to solve a critical problem: **software projects have poor or no documentation**.
-
-By combining:
-- Industry-standard templates
-- Automated code-to-docs extraction
-- AI-powered content generation
-- Multi-format output
-- Progressive Disclosure Architecture
-
-We make documentation a **first-class citizen** in the software development lifecycle.
-
----
-
-## 📞 Support
-
-**Resources**:
-- `USER_GUIDE.md` - Comprehensive feature documentation
-- `QUICK_START.md` - 5-minute tutorial
-- `PDA_MIGRATION_SUMMARY.md` - PDA architecture details
-- `IMPLEMENTATION_SUMMARY.md` - Technical architecture
-
-**For Questions**:
-- Review the reference guides in `reference/`
-- Examine workflow guides in `workflows/`
-- Check examples in `examples/`
+### For Contributors
+6. **Mappings**: `references/mappings/backend/spring-boot-mapping.yaml` (code-to-docs example)
+7. **Templates**: `references/templates/markdown/*.md` (document structure examples)
 
 ---
 
@@ -498,12 +496,49 @@ We make documentation a **first-class citizen** in the software development life
 | **Convert format** | `Convert [file] to [Word/PDF]` |
 | **Create diagram** | `Create a [diagram type] for [system]` |
 | **Package docs** | `Generate PDF package from all docs` |
+| **Create user manual** | `Create a user manual for [product]` |
+| **Create tutorial** | `Create a tutorial for [topic]` |
+| **Create runbook** | `Create a runbook for [procedure]` |
 
 ---
 
-**Ready to generate world-class software documentation!** 🚀
+## License
 
-**Version**: 2.0.0-PDA
+This skill synthesizes best practices from:
+- Industry standards (IEEE, ISO, OpenAPI)
+- Open-source documentation projects
+- Enterprise documentation patterns
+- Academic software engineering research
+
+---
+
+## Acknowledgments
+
+Created to solve a critical problem: **software projects have poor or no documentation**.
+
+By combining:
+- Industry-standard templates
+- Automated code-to-docs extraction
+- AI-powered content generation
+- Multi-format output
+- Progressive Disclosure Architecture
+
+We make documentation a **first-class citizen** in the software development lifecycle.
+
+---
+
+## Related Skills
+
+- **docx** - Microsoft Word document creation
+- **pdf** - PDF generation and manipulation
+- **plantuml** - PlantUML diagram generation
+- **mermaid-architect** - Mermaid diagram creation
+
+---
+
+**Version**: 3.0-PDA
 **Last Updated**: 2025-01-13
 **Minimum Claude Code Version**: Latest
-**PDA Compliant**: ✅ Yes (54% token reduction)
+**PDA Compliant**: Yes (54% token reduction)
+
+Ready to generate world-class software documentation!
