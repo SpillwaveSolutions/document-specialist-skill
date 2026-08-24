@@ -7,7 +7,7 @@ description: |
   format conversion (Markdown, DOCX, PDF), and diagram generation (Mermaid first: C4, sequence, class,
   ER, state, flowchart; PlantUML for wireframes and leftover UML). Use when asked to "create documentation",
   "document my code", "write SRS", "generate PRD", "wireframe", or "documentation specialist".
-version: "3.2.1-PDA"
+version: "3.2.2-PDA"
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
 ---
 
@@ -178,4 +178,4 @@ for every GitHub-safe diagram, and `plantuml` only for leftover types.
 
 ---
 
-**End of SKILL.md (v3.2.1-PDA)**
+**End of SKILL.md (v3.2.2-PDA)**

@@ -1,0 +1,21 @@
+{
+  "name": "document-specialist",
+  "description": "Software documentation specialist. STE100 default. Mermaid-first diagrams. PlantUML for wireframes and leftover UML.",
+  "version": "3.2.2",
+  "author": {
+    "name": "Rick Hightower",
+    "url": "https://github.com/RichardHightower"
+  },
+  "homepage": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+  "repository": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "srs",
+    "prd",
+    "mermaid",
+    "plantuml",
+    "ste100",
+    "claude-code"
+  ]
+}
