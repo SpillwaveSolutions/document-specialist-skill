@@ -254,8 +254,8 @@ This skill seamlessly integrates with other Claude Code skills:
 |-------|---------|---------------|----------|
 | **docx** | Word document creation/conversion | Yes when requested | MD to DOCX conversion, professional styling |
 | **pdf** | PDF generation | Yes when requested | MD/DOCX to PDF, documentation packages |
-| **plantuml** | UML diagram generation | Yes for UML diagrams | ER, sequence, class, state machine diagrams |
-| **mermaid-architect** | C4 diagram generation | Yes for C4 diagrams | System context, container, component diagrams |
+| **design-doc-mermaid** | Default diagrams (GitHub-safe) | Yes for C4, sequence, class, ER, state, flowchart | Fenced mermaid in Markdown. Confluence also needs PNG/SVG |
+| **plantuml** | Leftover UML + wireframes | Yes for wireframes, use case, timing, ArchiMate | Always PNG or SVG. GitHub wiki does not render PlantUML source |
 
 **Auto-invocation**: The skill automatically calls these skills when needed, you do not need to invoke them manually.
 
