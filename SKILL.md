@@ -6,7 +6,7 @@ description: |
   from existing code like Spring Boot or FastAPI (brownfield). Also handles documentation audits/reviews,
   format conversion (Markdown, DOCX, PDF), and diagram generation (C4, Mermaid, PlantUML, ER, sequence).
   Use when asked to "create documentation", "document my code", "write SRS", "generate PRD", or "documentation specialist".
-version: "3.0-PDA"
+version: "3.1-PDA"
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
 ---
 
@@ -35,7 +35,35 @@ Create a C4 container diagram for my microservices
 ```
 
 **Execution Flow:**
-1. Classify intent → 2. Load workflow → 3. Execute steps → 4. Generate documentation → 5. Present post-processing options
+1. Classify intent → 2. Choose one voice pack → 3. Load workflow → 4. Execute steps → 5. Generate documentation → 6. Present post-processing options
+
+---
+
+## Voice pack (required, pick one)
+
+Every document this skill writes uses **exactly one** voice pack. Do not mix them.
+
+| Pack | When | Source |
+|------|------|--------|
+| **STE100** (default) | Procedures, runbooks, manuals, architecture docs, code walkthroughs, and any request that does not name Google style | `ste100` skill (`SpillwaveSolutions/ste100-agent-plugins`) |
+| **google-docs-style** | User says "Google style", "Google docs style", or "developer style guide" | `google-docs-style` skill (`SpillwaveSolutions/google-docs-style`) |
+
+**Default is STE100.** Switch only when the user names Google style. If both are named, ask which pack to use. Do not apply both.
+
+### Hard bans (both packs)
+
+These apply even if a template or prior draft used them:
+
+- Do not use an em dash (`—`) or a double hyphen standing in for one (`--` as punctuation). Use a period or a comma.
+- Do not start a sentence with **So**, **That**, **Thus**, or **Hence**.
+- Do not start a sentence with a dangling demonstrative ("That is why..." as a lead).
+
+STE100 also requires: short sentences, one instruction per step, active voice, no contractions, no `e.g.` / `i.e.` / `etc.`, no weak modals in steps. Load [11-voice-and-style.md](references/reference/11-voice-and-style.md).
+
+After the draft exists, run the chosen pack:
+
+- STE100: follow the local orchestrator / editor / adversary loop in the `ste100` skill. No network.
+- Google style: run `python3 scripts/google_docs_style.py --lint --check` when that skill is installed.
 
 ---
 
@@ -108,6 +136,7 @@ Load only what is needed for the current task.
 
 ### Reference Guides
 - [comprehensive-guide.md](references/reference/comprehensive-guide.md) - Navigation to all 27 reference guides
+- [11-voice-and-style.md](references/reference/11-voice-and-style.md) - STE100 vs Google style, hard bans
 
 ### Examples
 - [Examples TOC](references/examples/TOC.md) - Navigation to all examples
@@ -118,10 +147,14 @@ Load only what is needed for the current task.
 
 | Skill | Invocation Trigger |
 |-------|-------------------|
+| **ste100** | Default voice pack. Procedures, runbooks, architecture docs, walkthroughs |
+| **google-docs-style** | User names Google style. Mutually exclusive with ste100 |
+| **design-doc-mermaid** | C4, flowchart, architecture, sequence for GitHub/wiki Markdown |
+| **plantuml** | UML that needs class/ER/state/component depth, or image export |
 | **docx** | Request includes Word format |
 | **pdf** | Request includes PDF format |
-| **plantuml** | UML diagrams (ER, sequence, component) |
-| **mermaid-architect** | C4 diagrams, flowcharts |
+
+When WikiTicket SDD asks for an architecture doc or a code walkthrough, use this skill for prose, `design-doc-mermaid` for GitHub-safe diagrams, and `plantuml` when a class, ER, or component diagram needs UML precision. Embed Mermaid in the Markdown. Keep PlantUML as `.puml` plus a rendered PNG/SVG link.
 
 ---
 
@@ -133,7 +166,8 @@ Load only what is needed for the current task.
 | Missing template | Use closest match, inform user |
 | Skill not available | Offer markdown-only alternative |
 | Ambiguous request | Ask: "Would you prefer SRS (formal) or PRD (agile)?" |
+| Both voice packs named | Ask which pack to use. Do not mix |
 
 ---
 
-**End of SKILL.md (v3.0-PDA)**
+**End of SKILL.md (v3.1-PDA)**
