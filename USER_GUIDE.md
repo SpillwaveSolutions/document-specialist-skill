@@ -46,15 +46,15 @@ The **Documentation Specialist** skill transforms Claude Code into an expert sof
 **Optional** (for full functionality):
 - `docx` skill (for Word document conversion)
 - `pdf` skill (for PDF generation)
-- `plantuml` skill (for UML diagrams)
-- `mermaid-architect` skill (for C4 diagrams)
+- `design-doc-mermaid` skill (default diagrams: C4, sequence, class, ER, state)
+- `plantuml` skill (wireframes and leftover UML; always PNG or SVG)
 
 **Install optional skills**:
 ```
 /skill docx
 /skill pdf
+/skill design-doc-mermaid
 /skill plantuml
-/skill mermaid-architect
 ```
 
 ---
@@ -640,14 +640,19 @@ Combine all documentation into a single PDF
 
 ### Diagram Types
 
-#### 5.1 C4 Model Diagrams (Mermaid)
+#### 5.1 Default diagrams (Mermaid)
 
-**Tool**: `mermaid-architect` skill (auto-invoked)
+**Tool**: `design-doc-mermaid` skill (auto-invoked)
 
 **Diagram types**:
 1. **C4 Context**: System boundaries, external dependencies
 2. **C4 Container**: Applications, databases, microservices
 3. **C4 Component**: Internal structure of a single container
+4. **Sequence**: Time-ordered interactions, API flows
+5. **ER**: Database schema, table relationships
+6. **Class**: Object-oriented structure
+7. **State**: Entity lifecycle with states
+8. **Flowchart**: Process, activity, component boxes
 
 **Command examples**:
 
@@ -678,50 +683,32 @@ Generate a component view of the API layer
 
 ---
 
-#### 5.2 UML Diagrams (PlantUML)
+#### 5.2 Leftover UML and wireframes (PlantUML)
 
-**Tool**: `plantuml` skill (auto-invoked)
+**Tool**: `plantuml` skill (auto-invoked). Always render PNG or SVG.
+GitHub wiki does not render PlantUML source.
 
 **Diagram types**:
-1. **Sequence Diagram**: Time-ordered interactions, API flows
-2. **ER Diagram**: Database schema, table relationships
-3. **Class Diagram**: Object-oriented structure
-4. **State Machine**: Entity lifecycle with states
-5. **Activity Diagram**: Business process, workflow
-6. **Component Diagram**: Software architecture
-7. **Deployment Diagram**: Physical topology
+1. **Salt wireframe**: UI mocks and screen sketches
+2. **Use case**: Actors and goals
+3. **Timing**: Clock, waveform
+4. **ArchiMate**: Enterprise layers
+5. **nwdiag / WBS**: Network racks and work breakdown
 
 **Command examples**:
 
-**Sequence Diagram**:
+**Wireframe**:
 ```
-Create a sequence diagram for the "Create Order" workflow
-Show the API call flow from client to database
-Generate a sequence diagram for user authentication
-```
-
-**ER Diagram**:
-```
-Create an ER diagram from my JPA entities
-Show database tables and relationships
-Generate a data model diagram for my schema
+Draw a login wireframe
+Sketch the checkout screen
 ```
 
-**State Machine**:
+**Use case**:
 ```
-Create a state machine diagram for Order lifecycle
-Show all order states and transitions
-Generate a state diagram for Task status
+Create a use case diagram for the billing actors
 ```
 
-**Activity Diagram**:
-```
-Create an activity diagram for user registration process
-Show the checkout workflow with decision points
-Generate a process flowchart for order fulfillment
-```
-
-**Output**: `docs/diagrams/{diagram-type}.puml` (PlantUML format)
+**Output**: `docs/diagrams/{diagram-type}.puml` plus PNG or SVG
 
 **Token cost**: ~4,200 tokens
 
@@ -922,14 +909,14 @@ Create an SRS for a HIPAA-compliant patient portal web application with:
 **Symptom**: Skill generates docs but no diagrams
 
 **Causes**:
-1. `mermaid-architect` or `plantuml` skills not installed
+1. `design-doc-mermaid` or `plantuml` skills not installed
 2. Diagram generation not offered
 3. Diagram type not supported
 
 **Solutions**:
 ```bash
 # Install diagram skills
-/skill mermaid-architect
+/skill design-doc-mermaid
 /skill plantuml
 
 # Explicitly request diagrams

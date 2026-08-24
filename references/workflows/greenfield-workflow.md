@@ -55,8 +55,8 @@ From the user request, extract:
 ### Step 5: Add Visuals
 
 Present diagram generation options:
-- System Context / Container diagrams → invoke `mermaid-architect` skill
-- ER / Sequence / Component diagrams → invoke `plantuml` skill
+- C4, flowchart, sequence, class, ER, state → invoke `design-doc-mermaid` skill
+- Wireframes, use case, timing, ArchiMate → invoke `plantuml` skill (always PNG or SVG)
 
 ### Step 6: Format & Save
 
