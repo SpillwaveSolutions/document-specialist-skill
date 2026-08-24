@@ -398,38 +398,31 @@ data_mappings:
       - **Many-to-One** to `User` via `assigned_user_id`
       - **One-to-Many** to `Comment` (mapped by `task`)
 
-    generated_er_diagram_plantuml: |
-      @startuml
-      entity "tasks" {
-        * id : BIGINT <<PK>>
-        --
-        * title : VARCHAR(200)
-        description : VARCHAR(2000)
-        due_date : DATE
-        status : VARCHAR(50)
-        assigned_user_id : BIGINT <<FK>>
-      }
-
-      entity "users" {
-        * id : BIGINT <<PK>>
-        --
-        email : VARCHAR(255)
-        name : VARCHAR(100)
-      }
-
-      entity "comments" {
-        * id : BIGINT <<PK>>
-        --
-        task_id : BIGINT <<FK>>
-        user_id : BIGINT <<FK>>
-        content : TEXT
-        created_at : TIMESTAMP
-      }
-
-      tasks }o--|| users : "assigned_user_id"
-      comments }o--|| tasks : "task_id"
-      comments }o--|| users : "user_id"
-      @enduml
+    generated_er_diagram_mermaid: |
+      erDiagram
+        USERS ||--o{ TASKS : assigned
+        USERS ||--o{ COMMENTS : writes
+        TASKS ||--o{ COMMENTS : has
+        USERS {
+          bigint id PK
+          varchar email
+          varchar name
+        }
+        TASKS {
+          bigint id PK
+          varchar title
+          varchar description
+          date due_date
+          varchar status
+          bigint assigned_user_id FK
+        }
+        COMMENTS {
+          bigint id PK
+          bigint task_id FK
+          bigint user_id FK
+          text content
+          timestamp created_at
+        }
 
   # Repository Interfaces
   - source_pattern: "@Repository | extends JpaRepository"
@@ -592,7 +585,7 @@ diagram_generation:
 
   # C4 Level 2: Container Diagram
   - diagram_type: "C4 Container"
-    tool: "mermaid-architect"
+    tool: "design-doc-mermaid"
     inputs:
       - "@SpringBootApplication class"
       - "application.properties/yml (database, external services)"
@@ -602,73 +595,53 @@ diagram_generation:
 
   # Component Diagram
   - diagram_type: "Component Diagram"
-    tool: "plantuml"
+    tool: "design-doc-mermaid"
     inputs:
       - "All @RestController classes"
       - "All @Service classes"
       - "All @Repository interfaces"
-    output_file: "docs/diagrams/component-diagram.puml"
+    output_file: "docs/diagrams/component-diagram.md"
     description: "Shows internal architecture layers and dependencies"
     template: |
-      @startuml
-      package "Controller Layer" {
-        [TaskController]
-        [UserController]
-      }
-
-      package "Service Layer" {
-        [TaskService]
-        [UserService]
-      }
-
-      package "Repository Layer" {
-        [TaskRepository]
-        [UserRepository]
-      }
-
-      database "PostgreSQL" {
-        [tasks]
-        [users]
-      }
-
-      [TaskController] --> [TaskService]
-      [TaskService] --> [TaskRepository]
-      [TaskRepository] --> [tasks]
-      @enduml
+      flowchart TD
+        TaskController --> TaskService
+        UserController --> UserService
+        TaskService --> TaskRepository
+        UserService --> UserRepository
+        TaskRepository --> tasks[(tasks)]
+        UserRepository --> users[(users)]
 
   # Sequence Diagram
   - diagram_type: "Sequence Diagram"
-    tool: "plantuml"
+    tool: "design-doc-mermaid"
     inputs:
       - "Trace a user flow (e.g., 'Create Task')"
       - "Controller → Service → Repository → Database"
-    output_file: "docs/diagrams/sequence-create-task.puml"
+    output_file: "docs/diagrams/sequence-create-task.md"
     description: "Shows message flow for a specific use case"
     template: |
-      @startuml
-      actor User
-      participant "TaskController" as Controller
-      participant "TaskService" as Service
-      participant "TaskRepository" as Repo
-      database "PostgreSQL" as DB
-
-      User -> Controller: POST /api/v1/tasks
-      Controller -> Service: create(request)
-      Service -> Service: validate(request)
-      Service -> Repo: save(task)
-      Repo -> DB: INSERT INTO tasks
-      DB --> Repo: saved task entity
-      Repo --> Service: Task entity
-      Service --> Controller: TaskDTO
-      Controller --> User: 201 Created + TaskDTO
-      @enduml
+      sequenceDiagram
+        actor User
+        participant Controller as TaskController
+        participant Service as TaskService
+        participant Repo as TaskRepository
+        participant DB as PostgreSQL
+        User->>Controller: POST /api/v1/tasks
+        Controller->>Service: create(request)
+        Service->>Service: validate(request)
+        Service->>Repo: save(task)
+        Repo->>DB: INSERT INTO tasks
+        DB-->>Repo: saved task entity
+        Repo-->>Service: Task entity
+        Service-->>Controller: TaskDTO
+        Controller-->>User: 201 Created + TaskDTO
 
   # ER Diagram
   - diagram_type: "ER Diagram"
-    tool: "plantuml"
+    tool: "design-doc-mermaid"
     inputs:
       - "All @Entity classes with relationships"
-    output_file: "docs/diagrams/er-diagram.puml"
+    output_file: "docs/diagrams/er-diagram.md"
     description: "Database schema with relationships"
 
 # ============================================================================
@@ -720,10 +693,11 @@ workflow:
       name: "Generate Diagrams"
       action: "Create visual documentation"
       diagrams:
-        - "C4 Container (mermaid-architect)"
-        - "Component Diagram (plantuml)"
-        - "ER Diagram (plantuml)"
-        - "Sequence Diagram for key flows (plantuml)"
+        - "C4 Container (design-doc-mermaid)"
+        - "Component Diagram (design-doc-mermaid)"
+        - "ER Diagram (design-doc-mermaid)"
+        - "Sequence Diagram for key flows (design-doc-mermaid)"
+        - "Wireframes / leftover UML (plantuml, always PNG or SVG)"
 
     - step: 7
       name: "Post-Processing"
@@ -731,7 +705,7 @@ workflow:
       options:
         - "Convert SDD to Word (docx skill)"
         - "Generate PDF package (pdf skill)"
-        - "Render PlantUML diagrams to PNG"
+        - "Render leftover PlantUML (wireframes, use case) to PNG"
 
 # ============================================================================
 # NOTES AND BEST PRACTICES

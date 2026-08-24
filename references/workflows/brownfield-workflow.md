@@ -70,8 +70,8 @@ For detailed guidance, load:
 ### Step 5: Invoke Diagram Skills
 
 Invoke appropriate diagram skills:
-- **mermaid-architect**: C4 diagrams (context, container, component)
-- **plantuml**: ER diagrams, sequence diagrams, component diagrams
+- **design-doc-mermaid**: C4, flowchart, sequence, class, ER, state, component views
+- **plantuml**: Salt wireframes, use case, timing, ArchiMate. Always PNG or SVG.
 
 ### Step 6: Format & Save
 

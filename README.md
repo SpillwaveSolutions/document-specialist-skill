@@ -113,14 +113,14 @@ Automatically generate documentation from existing code:
 
 ### 5. Visual Documentation
 
-**Mermaid Diagrams** (via `mermaid-architect` skill):
+**Mermaid Diagrams** (via `design-doc-mermaid` skill, default):
 - C4 Model: Context, Container, Component
-- Flowcharts and decision trees
+- Flowcharts, sequence, class, ER, state
 
-**PlantUML Diagrams** (via `plantuml` skill):
-- UML: Class, Sequence, Activity, State Machine
-- ER Diagrams (database schema)
-- Deployment diagrams
+**PlantUML Diagrams** (via `plantuml` skill, leftover types only):
+- Salt wireframes / UI mocks
+- Use case, timing, ArchiMate, nwdiag, WBS
+- Always PNG or SVG. GitHub wiki does not render PlantUML source.
 
 ---
 
@@ -405,7 +405,7 @@ prescription management, and EHR integration. Must support 10,000 concurrent use
 
 **Solution**: Ensure required skills are installed:
 ```
-/skill mermaid-architect
+/skill design-doc-mermaid
 /skill plantuml
 ```
 
@@ -531,13 +531,13 @@ We make documentation a **first-class citizen** in the software development life
 
 - **docx** - Microsoft Word document creation
 - **pdf** - PDF generation and manipulation
-- **plantuml** - PlantUML diagram generation
-- **mermaid-architect** - Mermaid diagram creation
+- **plantuml** - Leftover UML (wireframes, use case, timing, ArchiMate) plus image export
+- **design-doc-mermaid** - Default diagrams (C4, sequence, class, ER, state, flowchart)
 
 ---
 
-**Version**: 3.0-PDA
-**Last Updated**: 2025-01-13
+**Version**: 3.2.1-PDA
+**Last Updated**: 2026-08-24
 **Minimum Claude Code Version**: Latest
 **PDA Compliant**: Yes (54% token reduction)
 
