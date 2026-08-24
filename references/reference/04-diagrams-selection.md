@@ -1,7 +1,7 @@
 # Diagrams: Choosing the Right Diagram
 
 ---
-TOKEN_BUDGET: 220
+TOKEN_BUDGET: 280
 TIER: 3
 LOAD_TRIGGER: On-demand when selecting diagram type for documentation
 DEPENDENCIES: None
@@ -9,42 +9,57 @@ DEPENDENCIES: None
 
 ## 4.1 Choosing the Right Diagram
 
-### Decision Matrix
+Default is Mermaid. GitHub wiki renders it. Use PlantUML only for types
+Mermaid does not do well, plus every wireframe.
 
-| Need | Recommended Diagram | Tool |
-|------|---------------------|------|
-| Show system boundary and external actors | C4 Context or DFD Level 0 | Mermaid |
-| Show deployable containers | C4 Container | Mermaid |
-| Show internal components | C4 Component or UML Component | Mermaid/PlantUML |
-| Show object interactions over time | Sequence Diagram | PlantUML |
-| Show object lifecycle and states | State Machine Diagram | PlantUML |
-| Show workflow or business process | Activity Diagram or Flowchart | PlantUML/Mermaid |
-| Show database schema | ER Diagram | PlantUML |
-| Show class relationships | Class Diagram | PlantUML |
-| Show infrastructure topology | Deployment Diagram | PlantUML |
+### Decision matrix
 
-### Common Scenarios
+| Need | Diagram | Tool |
+|------|---------|------|
+| System boundary and external actors | C4 Context | Mermaid |
+| Deployable containers | C4 Container | Mermaid |
+| Internal modules | C4 Component or flowchart | Mermaid |
+| Interactions over time | Sequence | Mermaid |
+| Object lifecycle | State (`stateDiagram-v2`) | Mermaid |
+| Workflow or business process | Flowchart | Mermaid |
+| Database schema | ER (`erDiagram`) | Mermaid |
+| Class relationships | Class (`classDiagram`) | Mermaid |
+| Infra as boxes and arrows | Flowchart | Mermaid |
+| UI wireframe or screen mock | Salt wireframe | PlantUML |
+| Actors and goals | Use case | PlantUML |
+| Clock or waveform | Timing | PlantUML |
+| Enterprise layers | ArchiMate | PlantUML |
 
-**Scenario 1: Documenting a new microservices architecture**
-1. Start with C4 Context (show system boundary)
-2. Add C4 Container (show each microservice)
-3. For complex services, add C4 Component (show internal structure)
-4. Add Sequence diagrams for key workflows
+### Publish
 
-**Scenario 2: Documenting a REST API**
-1. OpenAPI specification (primary documentation)
-2. Sequence diagrams for authentication flow
-3. State Machine for resource lifecycle (e.g., Order states)
+- GitHub wiki: Mermaid stays in a fenced block. PlantUML is a PNG or SVG
+  that you commit and upload with the wiki page.
+- Confluence: render Mermaid and PlantUML to images and upload both.
 
-**Scenario 3: Documenting database design**
-1. ER Diagram (entities and relationships)
-2. Add notes for constraints, indexes
+### Common scenarios
 
-**Scenario 4: Onboarding developers to legacy code**
-1. C4 Context (where does this fit in the ecosystem?)
-2. C4 Component (what are the main modules?)
-3. Class diagrams for complex OOP hierarchies
-4. Sequence diagrams for critical workflows
+**New microservices architecture**
+1. C4 Context
+2. C4 Container
+3. C4 Component or flowchart for a complex service
+4. Sequence for key workflows
+
+**REST API**
+1. OpenAPI as the primary spec
+2. Sequence for auth
+3. State for resource lifecycle
+
+**Database**
+1. Mermaid `erDiagram`
+
+**Onboarding**
+1. C4 Context
+2. Flowchart or C4 Component
+3. Mermaid class diagram for a dense OOP cluster
+4. Sequence for critical flows
+
+**UI**
+1. PlantUML Salt wireframe, rendered to PNG, linked and uploaded
 
 ---
 
