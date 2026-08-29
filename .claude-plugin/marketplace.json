@@ -1,0 +1,30 @@
+{
+  "name": "spillwave-document-specialist",
+  "owner": {
+    "name": "Spillwave Solutions",
+    "email": "rick@spillwave.com"
+  },
+  "metadata": {
+    "description": "Document Specialist plugin for Claude Code. SDD, architecture, SRS, PRD, Mermaid, PlantUML."
+  },
+  "plugins": [
+    {
+      "name": "document-specialist",
+      "source": "./",
+      "description": "Software documentation specialist with arc42 DESIGN_DOC.md and four-host packaging.",
+      "version": "3.3.0",
+      "author": {
+        "name": "Rick Hightower"
+      },
+      "homepage": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+      "keywords": [
+        "documentation",
+        "sdd",
+        "architecture",
+        "mermaid",
+        "worklog",
+        "wiki-ticket-sdd"
+      ]
+    }
+  ]
+}

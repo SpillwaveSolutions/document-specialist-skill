@@ -1,0 +1,11 @@
+{
+  "name": "spillwave-document-specialist",
+  "plugins": [
+    {
+      "name": "document-specialist",
+      "source": "./",
+      "version": "3.3.0",
+      "description": "arc42 DESIGN_DOC.md, architecture docs, Mermaid-first diagrams."
+    }
+  ]
+}

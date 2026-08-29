@@ -1,0 +1,17 @@
+{
+  "name": "document-specialist-marketplace",
+  "description": "Grok marketplace pin. Grok Build also loads Claude plugins zero-config.",
+  "version": "3.3.0",
+  "plugins": [
+    {
+      "name": "document-specialist",
+      "source": ".",
+      "description": "Software documentation specialist with arc42 DESIGN_DOC.md, architecture docs, and Mermaid-first figures.",
+      "version": "3.3.0",
+      "compatibility": {
+        "claude_plugin": true,
+        "zero_config": true
+      }
+    }
+  ]
+}
