@@ -21,7 +21,8 @@ Output structure:
 ```
 docs/
 ├── overview.md           # Links to all project docs
-├── c4-context.png        # System-wide diagram
+├── DESIGN_DOC.md         # System-wide arc42 SDD (or at repo root)
+├── architecture.md       # Short C4 form when arc42 is too heavy
 ├── service-a/
 │   ├── srs.md
 │   └── api.yaml
@@ -37,7 +38,7 @@ For release documentation packages:
 1. Generate or update all document types:
    - SRS (if high-risk features)
    - PRD (for new features)
-   - SDD (architecture)
+   - SDD as DESIGN_DOC.md (architecture)
    - API documentation
    - User guide
    - Deployment guide

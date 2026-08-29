@@ -67,11 +67,11 @@ Read: kubernetes/*.yaml (if exists)
 
 | Artifact | Location | Content |
 |----------|----------|---------|
-| SDD | `docs/design/{project}-sdd.md` | arc42 format |
+| SDD | `DESIGN_DOC.md` | arc42. Template: templates/markdown/DESIGN_DOC.md. Few-shot: examples/brownfield/spring-boot-sdd.md |
 | OpenAPI | `docs/api/{project}-openapi.yaml` | All REST endpoints |
-| C4 Diagram | `docs/diagrams/c4-container.md` | System overview |
-| ER Diagram | `docs/diagrams/er-diagram.puml` | Entity relationships |
-| Component | `docs/diagrams/component.puml` | Layer architecture |
+| C4 / ER / sequence | fenced Mermaid in DESIGN_DOC.md | System overview |
+| UI wireframes | `docs/diagrams/[screen].puml` plus PNG/SVG | PlantUML Salt |
+| Use case / leftover UML | `docs/diagrams/*.puml` plus PNG/SVG | PlantUML |
 
 ## Key Annotations Reference
 

@@ -11,7 +11,9 @@ DEPENDENCIES: SKILL.md
 
 Create professional documentation from templates for new projects.
 
-**Supported**: SRS, PRD, OpenAPI, User Manuals, How-To Guides, Getting Started, Tutorials, Runbooks
+**Supported**: SRS, PRD, SDD (`DESIGN_DOC.md`), architecture docs, OpenAPI, User Manuals, How-To Guides, Getting Started, Tutorials, Runbooks
+
+If the request is an SDD, DESIGN_DOC.md, arc42, or architecture document, stop and load [design-workflow.md](design-workflow.md) instead of this file.
 
 ## Workflow Steps
 
@@ -27,6 +29,8 @@ Create professional documentation from templates for new projects.
 | "getting started", "quick start" | Getting Started | templates/markdown/getting-started.md |
 | "tutorial" | Tutorial | templates/markdown/developer-tutorial.md |
 | "runbook", "procedure" | Runbook | templates/markdown/runbook.md |
+| "SDD", "DESIGN_DOC", "arc42", "software design" | SDD | Stop. Load design-workflow.md |
+| "architecture document", "C4" | Architecture | Stop. Load design-workflow.md |
 
 ### Step 2: Load Template
 
@@ -34,6 +38,8 @@ Read the appropriate template file. For detailed guidance on specific document t
 - SRS: [greenfield/srs-guide.md](greenfield/srs-guide.md)
 - PRD: [greenfield/prd-guide.md](greenfield/prd-guide.md)
 - OpenAPI: [greenfield/openapi-guide.md](greenfield/openapi-guide.md)
+- SDD: [greenfield/sdd-guide.md](greenfield/sdd-guide.md)
+- Architecture: [greenfield/architecture-guide.md](greenfield/architecture-guide.md)
 
 ### Step 3: Extract Context
 
@@ -56,7 +62,7 @@ From the user request, extract:
 
 Present diagram generation options:
 - C4, flowchart, sequence, class, ER, state → invoke `design-doc-mermaid` skill
-- Wireframes, use case, timing, ArchiMate → invoke `plantuml` skill (always PNG or SVG)
+- UI wireframes (Salt), use case, timing, ArchiMate → invoke `plantuml` skill (always PNG or SVG). Load [examples/greenfield/ui-wireframes.md](../examples/greenfield/ui-wireframes.md) as the Salt few-shot.
 
 ### Step 6: Format & Save
 

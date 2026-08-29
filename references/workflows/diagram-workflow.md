@@ -99,3 +99,6 @@ Confluence: both are images.
 | Wireframe, use case, timing, ArchiMate, nwdiag, WBS | plantuml | PNG/SVG upload | PNG/SVG upload |
 
 For detailed guidance: [04-diagrams-selection.md](../reference/04-diagrams-selection.md)
+
+Salt few-shot: [examples/greenfield/ui-wireframes.md](../examples/greenfield/ui-wireframes.md). One screen per diagram. Do not sketch UI in Mermaid.
+

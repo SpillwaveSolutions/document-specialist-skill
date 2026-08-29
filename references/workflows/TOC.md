@@ -29,6 +29,8 @@ Quick reference to find the right workflow for your task.
 | SRS | [greenfield/srs-guide.md](greenfield/srs-guide.md) | ~250 |
 | PRD | [greenfield/prd-guide.md](greenfield/prd-guide.md) | ~250 |
 | OpenAPI | [greenfield/openapi-guide.md](greenfield/openapi-guide.md) | ~250 |
+| SDD / DESIGN_DOC.md | [greenfield/sdd-guide.md](greenfield/sdd-guide.md) | ~280 |
+| Architecture | [greenfield/architecture-guide.md](greenfield/architecture-guide.md) | ~220 |
 | Advanced | [greenfield/advanced.md](greenfield/advanced.md) | ~200 |
 
 ### Brownfield

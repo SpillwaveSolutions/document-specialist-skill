@@ -57,15 +57,18 @@ For detailed guidance, load:
 ### Step 4: Generate Documentation
 
 **For Backend Apps**:
-1. Software Design Document (SDD) - arc42 format
+1. Software Design Document (SDD) - arc42. Save as `DESIGN_DOC.md`. Template: templates/markdown/DESIGN_DOC.md. Few-shot: examples/brownfield/spring-boot-sdd.md.
 2. OpenAPI 3.0 Specification
-3. Diagrams: C4 Container, Component, ER, Sequence
+3. Diagrams: C4 Container, Component, ER, Sequence (Mermaid)
+4. PlantUML Salt wireframe for every user-facing screen
 
 **For Infrastructure**:
-1. Deployment Architecture Document
+1. Deployment Architecture Document (`docs/architecture.md` or `DESIGN_DOC.md`)
 2. Diagrams: C4 Infrastructure, Deployment Topology
 
-**Save to**: `docs/design/`, `docs/api/`, `docs/diagrams/`
+**Save to**: `DESIGN_DOC.md`, `docs/api/`, `docs/diagrams/`
+
+If the user asked only for an SDD, load [design-workflow.md](design-workflow.md) after extraction.
 
 ### Step 5: Invoke Diagram Skills
 
@@ -94,7 +97,8 @@ Present options to user:
 - [ ] Framework detected and confirmed
 - [ ] Mapping file loaded
 - [ ] All 6 extraction steps completed
-- [ ] SDD generated (arc42 format)
+- [ ] SDD generated as DESIGN_DOC.md (arc42 format)
+- [ ] Salt wireframes for user-facing screens
 - [ ] OpenAPI generated (backend only)
 - [ ] Diagrams generated
 - [ ] Code references include file paths
