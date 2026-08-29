@@ -65,9 +65,10 @@ Grep: "uvicorn|gunicorn" → ASGI server config
 
 | Artifact | Location |
 |----------|----------|
-| SDD | `docs/design/{project}-sdd.md` |
+| SDD | `DESIGN_DOC.md` |
 | OpenAPI | `docs/api/{project}-openapi.yaml` |
-| C4 Diagram | `docs/diagrams/c4-container.md` |
+| C4 / sequence / ER | fenced Mermaid in DESIGN_DOC.md |
+| UI wireframes | `docs/diagrams/[screen].puml` plus PNG/SVG |
 
 ## FastAPI Advantage
 

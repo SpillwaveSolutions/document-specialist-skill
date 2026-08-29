@@ -219,30 +219,39 @@ paths:
 
 #### 1.4 Software Design Document (SDD)
 
-**Trigger keywords**: "SDD", "design document", "technical design"
+**Trigger keywords**: "SDD", "design document", "technical design", "DESIGN_DOC.md", "arc42", "architecture document"
 
-**Standard**: arc42 architecture template
+**Standard**: arc42. Workflow: `references/workflows/design-workflow.md`. Template: `references/templates/markdown/DESIGN_DOC.md`.
 
 **Command examples**:
 ```
+Write DESIGN_DOC.md for this repository
 Create a Software Design Document for a microservices architecture
-Generate design documentation for a data processing pipeline
-Write an SDD for a mobile app backend
+Create an architecture document with C4-style Mermaid
+Draw PlantUML Salt wireframes for the checkout screens
 ```
 
-**Generated structure** (arc42 sections):
-1. Introduction and Goals
+**Generated structure** (arc42, twelve sections):
+1. Introduction and goals
 2. Constraints
-3. System Context
-4. Solution Strategy
-5. Building Block View (Components)
-6. Data Design
-7. Deployment View
-8. Crosscutting Concepts (Security, Logging, Error Handling)
+3. Context and scope
+4. Solution strategy
+5. Building block view
+6. Runtime view
+7. Deployment view
+8. Crosscutting concepts
+9. Architectural decisions
+10. Quality requirements
+11. Risks and technical debt
+12. Glossary
 
-**Output location**: `docs/design/{project}-sdd.md`
+**Required figures**: context, building blocks, one sequence, state or ER when needed, deployment, PlantUML Salt for every UI.
 
-**Token cost**: ~4,000 tokens
+**Output location**: `DESIGN_DOC.md` (or `docs/DESIGN_DOC.md`). Short C4 form: `docs/architecture.md`.
+
+**Few-shots**: `examples/greenfield/ecommerce-sdd.md`, `examples/greenfield/architecture-doc.md`, `examples/greenfield/ui-wireframes.md`, `examples/brownfield/spring-boot-sdd.md`.
+
+**Token cost**: ~4,200 tokens
 
 ---
 
@@ -305,7 +314,7 @@ Extract API docs from my Spring Boot app
    - **Deployment**: Reads config files, Dockerfile → deployment section
 
 3. **Generated Documentation**:
-   - **SDD** (`docs/design/{project}-sdd.md`):
+   - **SDD** (`DESIGN_DOC.md`):
      - Section 3: System Context (external systems from config)
      - Section 5: Building Block View (Controllers, Services, Repositories)
      - Section 6: Data Design (Entities with relationships)

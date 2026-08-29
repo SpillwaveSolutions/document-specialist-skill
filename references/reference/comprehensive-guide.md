@@ -36,7 +36,7 @@ This guide has been split into focused, small files following Progressive Disclo
 ### 3. Design and Architecture
 
 **Architecture Documentation** (~730 tokens total):
-- [03-design-arc42.md](03-design-arc42.md) - arc42 template, 12 sections, C4 integration (~280 tokens)
+- [03-design-arc42.md](03-design-arc42.md) - arc42 template, 12 sections, C4 integration. Default file is DESIGN_DOC.md (~280 tokens)
 - [03-design-adrs.md](03-design-adrs.md) - Architecture Decision Records, template, best practices (~300 tokens)
 - [03-design-requirements-matrix.md](03-design-requirements-matrix.md) - Mapping requirements to design (~150 tokens)
 
@@ -113,7 +113,9 @@ This guide has been split into focused, small files following Progressive Disclo
 | Understand documentation philosophy | [01-philosophy.md](01-philosophy.md) |
 | Create requirements (SRS/PRD) | [02-requirements-srs-vs-prd.md](02-requirements-srs-vs-prd.md) |
 | Write good requirements | [02-requirements-writing.md](02-requirements-writing.md) |
-| Document architecture | [03-design-arc42.md](03-design-arc42.md) |
+| Write DESIGN_DOC.md / SDD | [03-design-arc42.md](03-design-arc42.md) then workflows/design-workflow.md |
+| Document architecture (short C4) | templates/markdown/architecture.md |
+| Draw UI wireframes | examples/greenfield/ui-wireframes.md |
 | Record architectural decisions | [03-design-adrs.md](03-design-adrs.md) |
 | Choose the right diagram | [04-diagrams-selection.md](04-diagrams-selection.md) |
 | Understand state vs activity diagrams | [04-diagrams-state-vs-activity.md](04-diagrams-state-vs-activity.md) |
