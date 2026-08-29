@@ -9,7 +9,7 @@ DEPENDENCIES: None
 
 ## 3.1 The arc42 Template
 
-arc42 is a practical, modular template for documenting architecture. It provides a 12-section table of contents that answers the most important questions:
+arc42 is a practical, modular template for documenting architecture. It provides a 12-section table of contents that answers the most important questions.
 
 ### The 12 Sections
 
@@ -26,6 +26,16 @@ arc42 is a practical, modular template for documenting architecture. It provides
 11. **Risks and Technical Debt**: Known issues and compromises
 12. **Glossary**: Authoritative term definitions
 
+### Default files
+
+| Document | Template | Output |
+|----------|----------|--------|
+| Full SDD | [templates/markdown/DESIGN_DOC.md](../templates/markdown/DESIGN_DOC.md) | `DESIGN_DOC.md` |
+| Short C4 architecture | [templates/markdown/architecture.md](../templates/markdown/architecture.md) | `docs/architecture.md` |
+| Workflow | [workflows/design-workflow.md](../workflows/design-workflow.md) | Load with intent DESIGN |
+
+UI screens use PlantUML Salt. See [examples/greenfield/ui-wireframes.md](../examples/greenfield/ui-wireframes.md).
+
 ### Integration with C4
 
 arc42 sections map naturally to C4 diagrams:
@@ -37,6 +47,8 @@ arc42 sections map naturally to C4 diagrams:
 | Section 6: Runtime View | Sequence diagrams, Activity diagrams |
 | Section 7: Deployment View | Deployment diagrams |
 
+Use Mermaid `flowchart TD` for C4-style boxes on GitHub wiki. Fall back from experimental `C4Context` if the wiki fails to render it.
+
 ### When to Use arc42
 
 **Use arc42 when:**
@@ -45,10 +57,10 @@ arc42 sections map naturally to C4 diagrams:
 - Onboarding new architects or teams
 - Conducting architecture reviews
 
-**Skip arc42 when:**
+**Skip full arc42 when:**
 - Building simple CRUD applications
 - Creating proof-of-concept or MVPs
-- Working on small microservices (use lightweight SDD instead)
+- Working on small microservices (use the short architecture template instead)
 
 ---
 
