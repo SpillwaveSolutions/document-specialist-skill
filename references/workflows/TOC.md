@@ -7,10 +7,11 @@ Quick reference to find the right workflow for your task.
 | Intent | Workflow | Tokens | Description |
 |--------|----------|--------|-------------|
 | Create new docs | [greenfield-workflow.md](greenfield-workflow.md) | ~350 | Template-based creation |
+| Design / SDD / architecture | [design-workflow.md](design-workflow.md) | ~400 | arc42 DESIGN_DOC.md or C4 architecture.md |
 | Document code | [brownfield-workflow.md](brownfield-workflow.md) | ~400 | Reverse-engineer from code |
 | Review docs | [audit-workflow.md](audit-workflow.md) | ~350 | Audit and improve |
-| Change format | [convert-workflow.md](convert-workflow.md) | ~250 | MD ↔ DOCX ↔ PDF |
-| Create visuals | [diagram-workflow.md](diagram-workflow.md) | ~350 | Mermaid, PlantUML |
+| Change format | [convert-workflow.md](convert-workflow.md) | ~250 | MD to DOCX to PDF |
+| Create visuals | [diagram-workflow.md](diagram-workflow.md) | ~350 | Mermaid, PlantUML Salt |
 
 ## Specialized Workflows
 

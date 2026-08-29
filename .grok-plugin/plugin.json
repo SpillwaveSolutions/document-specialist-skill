@@ -1,10 +1,11 @@
 {
   "name": "document-specialist",
-  "description": "Software documentation specialist. arc42 DESIGN_DOC.md, architecture docs, STE100 default, Mermaid-first diagrams, PlantUML leftover types.",
   "version": "3.3.0",
+  "description": "Write DESIGN_DOC.md, architecture docs, SRS, and diagrams. Mermaid first. PlantUML leftover types. Google docs style on request.",
   "author": {
-    "name": "Rick Hightower",
-    "url": "https://github.com/RichardHightower"
+    "name": "Spillwave Solutions",
+    "email": "rick@spillwave.com",
+    "url": "https://spillwave.com"
   },
   "homepage": "https://github.com/SpillwaveSolutions/document-specialist-skill",
   "repository": "https://github.com/SpillwaveSolutions/document-specialist-skill",
@@ -16,7 +17,7 @@
     "architecture",
     "mermaid",
     "plantuml",
-    "ste100",
-    "claude-code"
+    "grok-build",
+    "wiki-ticket-sdd"
   ]
 }

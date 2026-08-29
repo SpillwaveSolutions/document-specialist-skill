@@ -1,0 +1,39 @@
+{
+  "name": "document-specialist",
+  "version": "3.3.0",
+  "description": "Write DESIGN_DOC.md, architecture docs, SRS, PRD, and diagrams for Codex. Mermaid first. PlantUML leftover types.",
+  "author": {
+    "name": "Spillwave Solutions",
+    "email": "rick@spillwave.com",
+    "url": "https://spillwave.com"
+  },
+  "homepage": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+  "repository": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "sdd",
+    "arc42",
+    "architecture",
+    "mermaid",
+    "plantuml",
+    "worklog",
+    "wiki-ticket-sdd"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Document Specialist",
+    "shortDescription": "arc42 DESIGN_DOC.md, architecture docs, Mermaid diagrams",
+    "longDescription": "Create software design documents, architecture notes, SRS, PRD, OpenAPI, and runbooks. Default output for design work is DESIGN_DOC.md using arc42. Diagrams are Mermaid first. PlantUML is reserved for wireframes, use cases, timing, ArchiMate, nwdiag, and WBS.",
+    "developerName": "Spillwave Solutions",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+    "defaultPrompt": [
+      "Write DESIGN_DOC.md for this repo using arc42. Use Google docs style. Include Mermaid context, sequence, and ER figures.",
+      "Create an architecture document with C4-style Mermaid flowcharts.",
+      "Reverse-engineer an SDD from this Spring Boot service."
+    ],
+    "brandColor": "#1a73e8"
+  }
+}

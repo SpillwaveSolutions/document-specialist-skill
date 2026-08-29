@@ -1,9 +1,9 @@
 # Documentation Specialist Skill
 
-**Version**: 3.0-PDA
+**Version**: 3.3.0
 **Status**: Production Ready (PDA-Compliant)
 **Author**: Created with Claude Code
-**Last Updated**: 2025-01-13
+**Last Updated**: 2026-08-29
 
 Transform Claude Code into an expert software documentation specialist with **Progressive Disclosure Architecture (PDA)** for maximum efficiency.
 
@@ -18,6 +18,36 @@ Install this skill instantly from the [Skilz Marketplace](https://skillzwave.ai/
 ```bash
 skilz install SpillwaveSolutions_document-specialist-skill/documentation-specialist
 ```
+
+### Claude Code plugin
+
+```bash
+claude plugin marketplace add SpillwaveSolutions/document-specialist-skill
+claude plugin install document-specialist
+```
+
+### Grok Build plugin
+
+Grok Build loads `.claude-plugin/` zero-config. Optional pin:
+
+```text
+.grok-plugin/plugin.json
+.grok-plugin/marketplace.json
+```
+
+### Codex plugin
+
+`.codex-plugin/plugin.json` with `"skills": "./skills/"`. Enable from the Codex plugin UI, or copy the repo into `~/.codex/plugins/`.
+
+### Cursor plugin
+
+`.cursor-plugin/plugin.json`. Optional: point `.cursor/rules` at `SKILL.md`.
+
+### Universal (Agent Plugins 1.0)
+
+Root `plugin.json` follows `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. Hosts that only speak Agent Plugins 1.0 load `skills/documentation-specialist/SKILL.md`.
+
+See [docs/HOSTS.md](docs/HOSTS.md) for the four-host matrix.
 
 ### Manual Installation
 
@@ -73,8 +103,9 @@ Create professional documentation from scratch using industry-standard templates
 |---------------|----------|--------|----------|
 | **SRS** (Software Requirements Specification) | IEEE 830 | Complete | Formal requirements, compliance, contracts |
 | **PRD** (Product Requirements Document) | Agile/Modern | Complete | Feature planning, sprint planning |
-| **SDD** (Software Design Document) | arc42 | Template | Technical design, architecture |
+| **SDD** (Software Design Document) | arc42 | Complete | Technical design, architecture. Default file is DESIGN_DOC.md |
 | **OpenAPI** 3.0 | OpenAPI Spec | Complete | REST API documentation |
+| **Architecture** (C4 short) | C4 | Complete | Context, containers, sequence, deployment. Default file is docs/architecture.md |
 | **User Guides** | - | Template | End-user documentation |
 | **Deployment Docs** | - | Template | DevOps, infrastructure |
 
@@ -172,12 +203,19 @@ Create a C4 container diagram for my e-commerce microservices platform
 
 ```
 documentation-specialist/
-|-- SKILL.md                           # Core routing logic + quick start (2,500 tokens)
+|-- SKILL.md                           # Core routing logic + quick start
+|-- plugin.json                        # Agent Plugins 1.0 (universal)
+|-- DESIGN_DOC.md                      # arc42 SDD of this skill
 |-- README.md                          # This file
 |-- USER_GUIDE.md                      # Comprehensive user guide
+|-- .claude-plugin/                    # Claude Code plugin + marketplace
+|-- .grok-plugin/                      # Grok Build plugin
+|-- .codex-plugin/                     # Codex plugin
+|-- .cursor-plugin/                    # Cursor plugin
 |
 |-- references/
 |   |-- workflows/                     # On-demand workflow guides
+|   |   |-- design-workflow.md        # arc42 DESIGN_DOC.md and C4 architecture.md
 |   |   |-- greenfield-workflow.md     # Template-based creation (1,500 tokens)
 |   |   |-- brownfield-workflow.md     # Code-to-docs extraction (1,500 tokens)
 |   |   |-- audit-workflow.md          # Documentation review (1,000 tokens)
@@ -190,6 +228,8 @@ documentation-specialist/
 |   |
 |   |-- templates/                     # Document templates
 |   |   +-- markdown/
+|   |       |-- DESIGN_DOC.md         # arc42 SDD (default output name)
+|   |       |-- architecture.md        # C4-first short architecture
 |   |       |-- requirements-srs.md    # IEEE SRS (600+ lines)
 |   |       |-- requirements-prd.md    # Agile PRD (500+ lines)
 |   |       |-- api-openapi.yaml       # OpenAPI 3.0 (800+ lines)
@@ -231,10 +271,11 @@ documentation-specialist/
 
 ### Intent Classification
 
-The skill automatically classifies your request into one of eight intents:
+The skill automatically classifies your request into one of nine intents:
 
 | Intent | Trigger Keywords | Workflow Loaded | Typical Tokens |
 |--------|-----------------|----------------|----------------|
+| **DESIGN** | "DESIGN_DOC.md", "SDD", "arc42", "architecture document" | design-workflow.md | ~4,200 |
 | **CREATE_NEW** | "create", "generate", "write" + doc type | greenfield-workflow.md | ~4,000 |
 | **CODE_TO_DOCS** | "document", "extract", path reference | brownfield-workflow.md | ~5,000 |
 | **AUDIT** | "audit", "review", "check", "improve" | audit-workflow.md | ~4,000 |
@@ -488,6 +529,9 @@ To improve this skill:
 
 | Task | Command Example |
 |------|----------------|
+| **Write SDD** | `Write DESIGN_DOC.md for this repository` |
+| **Architecture** | `Create an architecture document with C4-style Mermaid` |
+| **Wireframe** | `Draw PlantUML Salt wireframes for the checkout screens` |
 | **Create SRS** | `Create an SRS for [project description]` |
 | **Create PRD** | `Create a PRD for [feature description]` |
 | **Document code** | `Document my [framework] app at [path]` |
@@ -536,8 +580,8 @@ We make documentation a **first-class citizen** in the software development life
 
 ---
 
-**Version**: 3.2.1-PDA
-**Last Updated**: 2026-08-24
+**Version**: 3.3.0
+**Last Updated**: 2026-08-29
 **Minimum Claude Code Version**: Latest
 **PDA Compliant**: Yes (54% token reduction)
 

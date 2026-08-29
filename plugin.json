@@ -1,0 +1,48 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "document-specialist",
+  "version": "3.3.0",
+  "description": "Software documentation specialist with arc42 DESIGN_DOC.md, architecture docs, Mermaid-first diagrams, and PlantUML Salt UI wireframes. STE100 default. Google docs style on request. Claude Code, Grok Build, Codex, Cursor, and Agent Plugins 1.0.",
+  "author": {
+    "name": "Rick Hightower",
+    "email": "rick@spillwave.com",
+    "url": "https://github.com/RichardHightower"
+  },
+  "homepage": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+  "repository": "https://github.com/SpillwaveSolutions/document-specialist-skill",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "sdd",
+    "arc42",
+    "architecture",
+    "design-doc",
+    "srs",
+    "prd",
+    "mermaid",
+    "plantuml",
+    "ste100",
+    "google-docs-style",
+    "claude-code",
+    "grok-build",
+    "codex",
+    "cursor",
+    "agent-plugins",
+    "wiki-ticket-sdd"
+  ],
+  "skills": "./",
+  "extensions": {
+    "com.anthropic.claude-code": {
+      "pluginManifest": ".claude-plugin/plugin.json"
+    },
+    "com.openai.codex": {
+      "pluginManifest": ".codex-plugin/plugin.json"
+    },
+    "com.cursor": {
+      "pluginManifest": ".cursor-plugin/plugin.json"
+    },
+    "ai.xai.grok-build": {
+      "pluginManifest": ".grok-plugin/plugin.json"
+    }
+  }
+}
