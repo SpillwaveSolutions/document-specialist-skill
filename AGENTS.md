@@ -1,6 +1,6 @@
 # Document Specialist
 
-When the user asks for a design document, SDD, architecture document, or `DESIGN_DOC.md`, load `SKILL.md` then `references/workflows/design-workflow.md`.
+When the user asks for a design document, SDD, architecture document, or `DESIGN_DOC.md`, load `SKILL.md` then `skills/documentation-specialist/references/workflows/design-workflow.md`.
 
 Save the SDD as `DESIGN_DOC.md`. Use Mermaid for context, containers, sequence, class, ER, and state. Use PlantUML only for leftover types and always link a PNG or SVG.
 
