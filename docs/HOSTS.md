@@ -70,13 +70,13 @@ Default prompts:
 | Path | Role |
 |------|------|
 | `DESIGN_DOC.md` | arc42 SDD of Document Specialist itself |
-| `references/templates/markdown/DESIGN_DOC.md` | arc42 SDD template |
-| `references/templates/markdown/architecture.md` | Short C4 architecture template |
-| `references/workflows/design-workflow.md` | Intent DESIGN |
-| `references/examples/greenfield/ecommerce-sdd.md` | Greenfield few-shot |
-| `references/examples/greenfield/architecture-doc.md` | Short-form few-shot |
-| `references/examples/greenfield/ui-wireframes.md` | PlantUML Salt few-shot |
-| `references/examples/brownfield/spring-boot-sdd.md` | Brownfield few-shot |
+| `skills/documentation-specialist/references/templates/markdown/DESIGN_DOC.md` | arc42 SDD template |
+| `skills/documentation-specialist/references/templates/markdown/architecture.md` | Short C4 architecture template |
+| `skills/documentation-specialist/references/workflows/design-workflow.md` | Intent DESIGN |
+| `skills/documentation-specialist/references/examples/greenfield/ecommerce-sdd.md` | Greenfield few-shot |
+| `skills/documentation-specialist/references/examples/greenfield/architecture-doc.md` | Short-form few-shot |
+| `skills/documentation-specialist/references/examples/greenfield/ui-wireframes.md` | PlantUML Salt few-shot |
+| `skills/documentation-specialist/references/examples/brownfield/spring-boot-sdd.md` | Brownfield few-shot |
 | `commands/write-sdd.md` | Slash command |
 | `commands/write-architecture.md` | Slash command |
 | `commands/write-wireframe.md` | Slash command |

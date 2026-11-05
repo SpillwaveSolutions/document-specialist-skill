@@ -12,7 +12,7 @@
       "name": "document-specialist",
       "source": "./",
       "description": "Software documentation specialist with arc42 DESIGN_DOC.md and four-host packaging.",
-      "version": "3.3.0",
+      "version": "3.3.1",
       "author": {
         "name": "Rick Hightower"
       },

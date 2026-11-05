@@ -1,7 +1,7 @@
 {
   "name": "document-specialist",
   "description": "Software documentation specialist. arc42 DESIGN_DOC.md, architecture docs, STE100 default, Mermaid-first diagrams, PlantUML leftover types.",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "author": {
     "name": "Rick Hightower",
     "url": "https://github.com/RichardHightower"

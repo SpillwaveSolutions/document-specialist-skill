@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "document-specialist",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "Software documentation specialist with arc42 DESIGN_DOC.md, architecture docs, Mermaid-first diagrams, and PlantUML Salt UI wireframes. STE100 default. Google docs style on request. Claude Code, Grok Build, Codex, Cursor, and Agent Plugins 1.0.",
   "author": {
     "name": "Rick Hightower",

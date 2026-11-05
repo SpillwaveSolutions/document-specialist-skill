@@ -5,7 +5,7 @@ description: Draw PlantUML Salt UI wireframes for every user-facing screen. Rend
 
 Draw UI wireframes with PlantUML Salt.
 
-1. Load `references/examples/greenfield/ui-wireframes.md`.
+1. Load `skills/documentation-specialist/references/examples/greenfield/ui-wireframes.md`.
 2. One screen per diagram. Window, fields, primary action.
 3. Save source as `docs/diagrams/[screen].puml`.
 4. Render PNG or SVG and link it from DESIGN_DOC.md.

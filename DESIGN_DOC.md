@@ -202,16 +202,17 @@ document-specialist-skill/
   .claude-plugin/plugin.json
   .grok-plugin/plugin.json
   .codex-plugin/plugin.json
-  skills/documentation-specialist/SKILL.md
   commands/write-sdd.md
   commands/write-architecture.md
-  references/
-    workflows/design-workflow.md
-    templates/markdown/DESIGN_DOC.md
-    templates/markdown/architecture.md
-    examples/greenfield/ecommerce-sdd.md
-    examples/brownfield/spring-boot-sdd.md
-    reference/03-design-arc42.md
+  skills/documentation-specialist/
+    SKILL.md
+    references/
+      workflows/design-workflow.md
+      templates/markdown/DESIGN_DOC.md
+      templates/markdown/architecture.md
+      examples/greenfield/ecommerce-sdd.md
+      examples/brownfield/spring-boot-sdd.md
+      reference/03-design-arc42.md
 ```
 
 ---
@@ -319,7 +320,7 @@ Grok Build loads Claude plugins zero-config when `.claude-plugin/` is present. C
 
 **Error handling.** If the framework is unknown, ask Spring Boot, FastAPI, or other. If both voice packs are named, ask which one. If a template is missing, use the closest match and say so.
 
-**Extensibility.** Add a template under `references/templates/markdown/`, a row in SKILL.md, a workflow keyword, and one example. Do not inline the example in SKILL.md.
+**Extensibility.** Add a template under `skills/documentation-specialist/references/templates/markdown/`, a row in SKILL.md, a workflow keyword, and one example. Do not inline the example in SKILL.md.
 
 ### 8.1 UI wireframes
 

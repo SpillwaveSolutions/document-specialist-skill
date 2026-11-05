@@ -8,7 +8,7 @@ description: |
   sequence, class, ER, state, flowchart; PlantUML Salt for UI wireframes and leftover UML). Use when
   asked to "create documentation", "document my code", "write SRS", "generate PRD", "write DESIGN_DOC.md",
   "architecture document", "wireframe", or "documentation specialist".
-version: "3.3.0"
+version: "3.3.1"
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
 ---
 
@@ -155,7 +155,7 @@ Load only what is needed for the current task.
 - [Examples TOC](references/examples/TOC.md) - Navigation to all examples
 - DESIGN: [ecommerce-sdd.md](references/examples/greenfield/ecommerce-sdd.md), [architecture-doc.md](references/examples/greenfield/architecture-doc.md), [ui-wireframes.md](references/examples/greenfield/ui-wireframes.md)
 - Brownfield SDD: [spring-boot-sdd.md](references/examples/brownfield/spring-boot-sdd.md)
-- This skill's own SDD: [DESIGN_DOC.md](DESIGN_DOC.md)
+- This skill's own SDD: [DESIGN_DOC.md](../../DESIGN_DOC.md)
 
 ---
 
@@ -192,4 +192,4 @@ for every GitHub-safe diagram, and `plantuml` only for leftover types.
 
 ---
 
-**End of SKILL.md (v3.3.0)**
+**End of SKILL.md (v3.3.1)**

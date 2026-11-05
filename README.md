@@ -1,9 +1,9 @@
 # Documentation Specialist Skill
 
-**Version**: 3.3.0
+**Version**: 3.3.1
 **Status**: Production Ready (PDA-Compliant)
 **Author**: Created with Claude Code
-**Last Updated**: 2026-08-29
+**Last Updated**: 2026-11-05
 
 Transform Claude Code into an expert software documentation specialist with **Progressive Disclosure Architecture (PDA)** for maximum efficiency.
 
@@ -213,45 +213,48 @@ documentation-specialist/
 |-- .codex-plugin/                     # Codex plugin
 |-- .cursor-plugin/                    # Cursor plugin
 |
-|-- references/
-|   |-- workflows/                     # On-demand workflow guides
-|   |   |-- design-workflow.md        # arc42 DESIGN_DOC.md and C4 architecture.md
-|   |   |-- greenfield-workflow.md     # Template-based creation (1,500 tokens)
-|   |   |-- brownfield-workflow.md     # Code-to-docs extraction (1,500 tokens)
-|   |   |-- audit-workflow.md          # Documentation review (1,000 tokens)
-|   |   |-- convert-workflow.md        # Format conversion (750 tokens)
-|   |   |-- diagram-workflow.md        # Diagram generation (1,000 tokens)
-|   |   |-- user-docs-workflow.md      # User documentation
-|   |   |-- tutorial-workflow.md       # Tutorial creation
-|   |   |-- runbook-workflow.md        # Operational runbooks
-|   |   +-- TOC.md                     # Navigation index
-|   |
-|   |-- templates/                     # Document templates
-|   |   +-- markdown/
-|   |       |-- DESIGN_DOC.md         # arc42 SDD (default output name)
-|   |       |-- architecture.md        # C4-first short architecture
-|   |       |-- requirements-srs.md    # IEEE SRS (600+ lines)
-|   |       |-- requirements-prd.md    # Agile PRD (500+ lines)
-|   |       |-- api-openapi.yaml       # OpenAPI 3.0 (800+ lines)
-|   |       |-- user-manual.md         # User manual template
-|   |       |-- howto-guide.md         # How-to guide template
-|   |       |-- getting-started.md     # Getting started template
-|   |       |-- developer-tutorial.md  # Developer tutorial
-|   |       +-- runbook.md             # Runbook template
-|   |
-|   |-- mappings/                      # Code-to-docs mappings
-|   |   +-- backend/
-|   |       |-- spring-boot-mapping.yaml  # Complete
-|   |       +-- fastapi-mapping.yaml      # Complete
-|   |
-|   |-- reference/                     # Reference guides
-|   |   |-- comprehensive-guide.md     # Navigation to all 27 guides
-|   |   +-- 01-philosophy.md           # Docs-as-code principles
-|   |
-|   +-- examples/                      # Example documentation
-|       |-- TOC.md                     # Navigation to all examples
-|       |-- greenfield/                # Template-based examples
-|       +-- brownfield/                # Code-to-docs examples
+|-- skills/
+|   +-- documentation-specialist/
+|       |-- SKILL.md                   # Same router as the root SKILL.md
+|       +-- references/
+|           |-- workflows/                     # On-demand workflow guides
+|           |   |-- design-workflow.md        # arc42 DESIGN_DOC.md and C4 architecture.md
+|           |   |-- greenfield-workflow.md     # Template-based creation (1,500 tokens)
+|           |   |-- brownfield-workflow.md     # Code-to-docs extraction (1,500 tokens)
+|           |   |-- audit-workflow.md          # Documentation review (1,000 tokens)
+|           |   |-- convert-workflow.md        # Format conversion (750 tokens)
+|           |   |-- diagram-workflow.md        # Diagram generation (1,000 tokens)
+|           |   |-- user-docs-workflow.md      # User documentation
+|           |   |-- tutorial-workflow.md       # Tutorial creation
+|           |   |-- runbook-workflow.md        # Operational runbooks
+|           |   +-- TOC.md                     # Navigation index
+|           |
+|           |-- templates/                     # Document templates
+|           |   +-- markdown/
+|           |       |-- DESIGN_DOC.md         # arc42 SDD (default output name)
+|           |       |-- architecture.md        # C4-first short architecture
+|           |       |-- requirements-srs.md    # IEEE SRS (600+ lines)
+|           |       |-- requirements-prd.md    # Agile PRD (500+ lines)
+|           |       |-- api-openapi.yaml       # OpenAPI 3.0 (800+ lines)
+|           |       |-- user-manual.md         # User manual template
+|           |       |-- howto-guide.md         # How-to guide template
+|           |       |-- getting-started.md     # Getting started template
+|           |       |-- developer-tutorial.md  # Developer tutorial
+|           |       +-- runbook.md             # Runbook template
+|           |
+|           |-- mappings/                      # Code-to-docs mappings
+|           |   +-- backend/
+|           |       |-- spring-boot-mapping.yaml  # Complete
+|           |       +-- fastapi-mapping.yaml      # Complete
+|           |
+|           |-- reference/                     # Reference guides
+|           |   |-- comprehensive-guide.md     # Navigation to all 27 guides
+|           |   +-- 01-philosophy.md           # Docs-as-code principles
+|           |
+|           +-- examples/                      # Example documentation
+|               |-- TOC.md                     # Navigation to all examples
+|               |-- greenfield/                # Template-based examples
+|               +-- brownfield/                # Code-to-docs examples
 ```
 
 ---
@@ -516,12 +519,12 @@ To improve this skill:
 
 ### For Advanced Users
 3. **PDA Architecture**: Understand token optimization details
-4. **Workflow Guides**: `references/workflows/*.md` (detailed execution workflows)
-5. **Reference Guides**: `references/reference/*.md` (best practices, philosophy)
+4. **Workflow Guides**: `skills/documentation-specialist/references/workflows/*.md` (detailed execution workflows)
+5. **Reference Guides**: `skills/documentation-specialist/references/reference/*.md` (best practices, philosophy)
 
 ### For Contributors
-6. **Mappings**: `references/mappings/backend/spring-boot-mapping.yaml` (code-to-docs example)
-7. **Templates**: `references/templates/markdown/*.md` (document structure examples)
+6. **Mappings**: `skills/documentation-specialist/references/mappings/backend/spring-boot-mapping.yaml` (code-to-docs example)
+7. **Templates**: `skills/documentation-specialist/references/templates/markdown/*.md` (document structure examples)
 
 ---
 
@@ -580,8 +583,8 @@ We make documentation a **first-class citizen** in the software development life
 
 ---
 
-**Version**: 3.3.0
-**Last Updated**: 2026-08-29
+**Version**: 3.3.1
+**Last Updated**: 2026-11-05
 **Minimum Claude Code Version**: Latest
 **PDA Compliant**: Yes (54% token reduction)
 

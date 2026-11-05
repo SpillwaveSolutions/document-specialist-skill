@@ -8,7 +8,7 @@ description: |
   sequence, class, ER, state, flowchart; PlantUML Salt for UI wireframes and leftover UML). Use when
   asked to "create documentation", "document my code", "write SRS", "generate PRD", "write DESIGN_DOC.md",
   "architecture document", "wireframe", or "documentation specialist".
-version: "3.3.0"
+version: "3.3.1"
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill"]
 ---
 
@@ -63,7 +63,7 @@ These apply even if a template or prior draft used them:
 - Do not start a sentence with **So**, **That**, **Thus**, or **Hence**.
 - Do not start a sentence with a dangling demonstrative ("That is why..." as a lead).
 
-STE100 also requires: short sentences, one instruction per step, active voice, no contractions, no `e.g.` / `i.e.` / `etc.`, no weak modals in steps. Load [11-voice-and-style.md](references/reference/11-voice-and-style.md).
+STE100 also requires: short sentences, one instruction per step, active voice, no contractions, no `e.g.` / `i.e.` / `etc.`, no weak modals in steps. Load [11-voice-and-style.md](skills/documentation-specialist/references/reference/11-voice-and-style.md).
 
 After the draft exists, run the chosen pack:
 
@@ -76,15 +76,15 @@ After the draft exists, run the chosen pack:
 
 | Intent | Keywords | Workflow |
 |--------|----------|----------|
-| **CREATE_NEW** | "create", "generate", "write" + doc type | [greenfield-workflow.md](references/workflows/greenfield-workflow.md) |
-| **DESIGN** | "DESIGN_DOC.md", "SDD", "software design document", "arc42", "architecture document", "architecture.md" | [design-workflow.md](references/workflows/design-workflow.md) |
-| **CODE_TO_DOCS** | "document", "extract", path reference | [brownfield-workflow.md](references/workflows/brownfield-workflow.md) |
-| **AUDIT** | "audit", "review", "check", "improve" | [audit-workflow.md](references/workflows/audit-workflow.md) |
-| **CONVERT** | "convert", "to Word", "to PDF" | [convert-workflow.md](references/workflows/convert-workflow.md) |
-| **DIAGRAM** | "diagram", "C4", "sequence", "ER", "class", "state", "wireframe", "mock", "Salt" | [diagram-workflow.md](references/workflows/diagram-workflow.md) |
-| **USER_DOCS** | "user manual", "how-to", "getting started" | [user-docs-workflow.md](references/workflows/user-docs-workflow.md) |
-| **TUTORIAL** | "tutorial", "API guide", "CLI docs" | [tutorial-workflow.md](references/workflows/tutorial-workflow.md) |
-| **RUNBOOK** | "runbook", "procedure", "incident" | [runbook-workflow.md](references/workflows/runbook-workflow.md) |
+| **CREATE_NEW** | "create", "generate", "write" + doc type | [greenfield-workflow.md](skills/documentation-specialist/references/workflows/greenfield-workflow.md) |
+| **DESIGN** | "DESIGN_DOC.md", "SDD", "software design document", "arc42", "architecture document", "architecture.md" | [design-workflow.md](skills/documentation-specialist/references/workflows/design-workflow.md) |
+| **CODE_TO_DOCS** | "document", "extract", path reference | [brownfield-workflow.md](skills/documentation-specialist/references/workflows/brownfield-workflow.md) |
+| **AUDIT** | "audit", "review", "check", "improve" | [audit-workflow.md](skills/documentation-specialist/references/workflows/audit-workflow.md) |
+| **CONVERT** | "convert", "to Word", "to PDF" | [convert-workflow.md](skills/documentation-specialist/references/workflows/convert-workflow.md) |
+| **DIAGRAM** | "diagram", "C4", "sequence", "ER", "class", "state", "wireframe", "mock", "Salt" | [diagram-workflow.md](skills/documentation-specialist/references/workflows/diagram-workflow.md) |
+| **USER_DOCS** | "user manual", "how-to", "getting started" | [user-docs-workflow.md](skills/documentation-specialist/references/workflows/user-docs-workflow.md) |
+| **TUTORIAL** | "tutorial", "API guide", "CLI docs" | [tutorial-workflow.md](skills/documentation-specialist/references/workflows/tutorial-workflow.md) |
+| **RUNBOOK** | "runbook", "procedure", "incident" | [runbook-workflow.md](skills/documentation-specialist/references/workflows/runbook-workflow.md) |
 
 **CRITICAL**: Load only the workflow needed for the current intent. Avoid loading multiple workflows.
 
@@ -97,24 +97,24 @@ When intent is DESIGN, save the SDD as `DESIGN_DOC.md` (or `docs/DESIGN_DOC.md`)
 **Requirements and Design:**
 | Type | Template | Default output |
 |------|----------|----------------|
-| SRS | [requirements-srs.md](references/templates/markdown/requirements-srs.md) | `docs/srs.md` |
-| PRD | [requirements-prd.md](references/templates/markdown/requirements-prd.md) | `docs/prd.md` |
-| SDD (arc42) | [DESIGN_DOC.md](references/templates/markdown/DESIGN_DOC.md) | `DESIGN_DOC.md` |
-| Architecture (C4 short) | [architecture.md](references/templates/markdown/architecture.md) | `docs/architecture.md` |
-| OpenAPI | [api-openapi.yaml](references/templates/markdown/api-openapi.yaml) | `openapi.yaml` |
+| SRS | [requirements-srs.md](skills/documentation-specialist/references/templates/markdown/requirements-srs.md) | `docs/srs.md` |
+| PRD | [requirements-prd.md](skills/documentation-specialist/references/templates/markdown/requirements-prd.md) | `docs/prd.md` |
+| SDD (arc42) | [DESIGN_DOC.md](skills/documentation-specialist/references/templates/markdown/DESIGN_DOC.md) | `DESIGN_DOC.md` |
+| Architecture (C4 short) | [architecture.md](skills/documentation-specialist/references/templates/markdown/architecture.md) | `docs/architecture.md` |
+| OpenAPI | [api-openapi.yaml](skills/documentation-specialist/references/templates/markdown/api-openapi.yaml) | `openapi.yaml` |
 
 **User Documentation:**
 | Type | Template |
 |------|----------|
-| User Manual | [user-manual.md](references/templates/markdown/user-manual.md) |
-| How-To Guide | [howto-guide.md](references/templates/markdown/howto-guide.md) |
-| Getting Started | [getting-started.md](references/templates/markdown/getting-started.md) |
+| User Manual | [user-manual.md](skills/documentation-specialist/references/templates/markdown/user-manual.md) |
+| How-To Guide | [howto-guide.md](skills/documentation-specialist/references/templates/markdown/howto-guide.md) |
+| Getting Started | [getting-started.md](skills/documentation-specialist/references/templates/markdown/getting-started.md) |
 
 **Developer and Operations:**
 | Type | Template |
 |------|----------|
-| Developer Tutorial | [developer-tutorial.md](references/templates/markdown/developer-tutorial.md) |
-| Runbook | [runbook.md](references/templates/markdown/runbook.md) |
+| Developer Tutorial | [developer-tutorial.md](skills/documentation-specialist/references/templates/markdown/developer-tutorial.md) |
+| Runbook | [runbook.md](skills/documentation-specialist/references/templates/markdown/runbook.md) |
 
 ---
 
@@ -122,8 +122,8 @@ When intent is DESIGN, save the SDD as `DESIGN_DOC.md` (or `docs/DESIGN_DOC.md`)
 
 | Framework | Detection | Mapping |
 |-----------|-----------|---------|
-| **Spring Boot** | `pom.xml`, `@SpringBootApplication` | [spring-boot-mapping.yaml](references/mappings/backend/spring-boot-mapping.yaml) |
-| **FastAPI** | `requirements.txt`, `from fastapi import` | [fastapi-mapping.yaml](references/mappings/backend/fastapi-mapping.yaml) |
+| **Spring Boot** | `pom.xml`, `@SpringBootApplication` | [spring-boot-mapping.yaml](skills/documentation-specialist/references/mappings/backend/spring-boot-mapping.yaml) |
+| **FastAPI** | `requirements.txt`, `from fastapi import` | [fastapi-mapping.yaml](skills/documentation-specialist/references/mappings/backend/fastapi-mapping.yaml) |
 
 **Process**: Glob for detection files to Grep for patterns to Load mapping to Follow brownfield workflow
 
@@ -134,27 +134,27 @@ When intent is DESIGN, save the SDD as `DESIGN_DOC.md` (or `docs/DESIGN_DOC.md`)
 Load only what is needed for the current task.
 
 ### Workflows
-- [Workflow TOC](references/workflows/TOC.md) - Navigation index
-- [design-workflow.md](references/workflows/design-workflow.md)
-- [greenfield-workflow.md](references/workflows/greenfield-workflow.md)
-- [brownfield-workflow.md](references/workflows/brownfield-workflow.md)
-- [audit-workflow.md](references/workflows/audit-workflow.md)
-- [convert-workflow.md](references/workflows/convert-workflow.md)
-- [diagram-workflow.md](references/workflows/diagram-workflow.md)
-- [user-docs-workflow.md](references/workflows/user-docs-workflow.md)
-- [tutorial-workflow.md](references/workflows/tutorial-workflow.md)
-- [runbook-workflow.md](references/workflows/runbook-workflow.md)
+- [Workflow TOC](skills/documentation-specialist/references/workflows/TOC.md) - Navigation index
+- [design-workflow.md](skills/documentation-specialist/references/workflows/design-workflow.md)
+- [greenfield-workflow.md](skills/documentation-specialist/references/workflows/greenfield-workflow.md)
+- [brownfield-workflow.md](skills/documentation-specialist/references/workflows/brownfield-workflow.md)
+- [audit-workflow.md](skills/documentation-specialist/references/workflows/audit-workflow.md)
+- [convert-workflow.md](skills/documentation-specialist/references/workflows/convert-workflow.md)
+- [diagram-workflow.md](skills/documentation-specialist/references/workflows/diagram-workflow.md)
+- [user-docs-workflow.md](skills/documentation-specialist/references/workflows/user-docs-workflow.md)
+- [tutorial-workflow.md](skills/documentation-specialist/references/workflows/tutorial-workflow.md)
+- [runbook-workflow.md](skills/documentation-specialist/references/workflows/runbook-workflow.md)
 
 ### Reference Guides
-- [comprehensive-guide.md](references/reference/comprehensive-guide.md) - Navigation to all 27 reference guides
-- [11-voice-and-style.md](references/reference/11-voice-and-style.md) - STE100 vs Google style, hard bans
-- [04-diagrams-selection.md](references/reference/04-diagrams-selection.md) - Mermaid first, PlantUML leftover types, Salt UI wireframes
-- [03-design-arc42.md](references/reference/03-design-arc42.md) - The twelve arc42 sections
+- [comprehensive-guide.md](skills/documentation-specialist/references/reference/comprehensive-guide.md) - Navigation to all 27 reference guides
+- [11-voice-and-style.md](skills/documentation-specialist/references/reference/11-voice-and-style.md) - STE100 vs Google style, hard bans
+- [04-diagrams-selection.md](skills/documentation-specialist/references/reference/04-diagrams-selection.md) - Mermaid first, PlantUML leftover types, Salt UI wireframes
+- [03-design-arc42.md](skills/documentation-specialist/references/reference/03-design-arc42.md) - The twelve arc42 sections
 
 ### Examples
-- [Examples TOC](references/examples/TOC.md) - Navigation to all examples
-- DESIGN: [ecommerce-sdd.md](references/examples/greenfield/ecommerce-sdd.md), [architecture-doc.md](references/examples/greenfield/architecture-doc.md), [ui-wireframes.md](references/examples/greenfield/ui-wireframes.md)
-- Brownfield SDD: [spring-boot-sdd.md](references/examples/brownfield/spring-boot-sdd.md)
+- [Examples TOC](skills/documentation-specialist/references/examples/TOC.md) - Navigation to all examples
+- DESIGN: [ecommerce-sdd.md](skills/documentation-specialist/references/examples/greenfield/ecommerce-sdd.md), [architecture-doc.md](skills/documentation-specialist/references/examples/greenfield/architecture-doc.md), [ui-wireframes.md](skills/documentation-specialist/references/examples/greenfield/ui-wireframes.md)
+- Brownfield SDD: [spring-boot-sdd.md](skills/documentation-specialist/references/examples/brownfield/spring-boot-sdd.md)
 - This skill's own SDD: [DESIGN_DOC.md](DESIGN_DOC.md)
 
 ---
@@ -192,4 +192,4 @@ for every GitHub-safe diagram, and `plantuml` only for leftover types.
 
 ---
 
-**End of SKILL.md (v3.3.0)**
+**End of SKILL.md (v3.3.1)**
